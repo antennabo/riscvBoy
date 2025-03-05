@@ -105,8 +105,8 @@ module idu#(
     wire func3_110 = (func3==3'b110);
     wire func3_111 = (func3==3'b111);
 
-    wire func7_0000000 = (func7==6'b000000); 
-    wire func7_0100000 = (func7==6'b010000); 
+    wire func7_0000000 = (func7==7'b0000000); 
+    wire func7_0100000 = (func7==7'b0100000); 
 
     wire opcode_1_0_00  = (opcode[1:0] == 2'b00);
     wire opcode_1_0_01  = (opcode[1:0] == 2'b01);
