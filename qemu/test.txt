@@ -1,0 +1,10 @@
+riscv64-linux-gnu-as -g -o test.o test.s
+riscv64-linux-gnu-ld -g -o test test.o
+qemu-riscv64 -g 1234 ./test
+
+gdb-multiarch test
+
+target remote :1234
+
+riscv64-unknown-elf-objdump -d hello
+info register
