@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Tue Feb  4 10:01:39 2025
+# Process ID: 3562
+# Current directory: /home/haoyu/workspace/riscv/riscvBoy/fpga/example/example.runs/synth_1
+# Command line: vivado -log SDP_RAM.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source SDP_RAM.tcl
+# Log file: /home/haoyu/workspace/riscv/riscvBoy/fpga/example/example.runs/synth_1/SDP_RAM.vds
+# Journal file: /home/haoyu/workspace/riscv/riscvBoy/fpga/example/example.runs/synth_1/vivado.jou
+#-----------------------------------------------------------
+source SDP_RAM.tcl -notrace

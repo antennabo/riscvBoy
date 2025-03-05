@@ -1,0 +1,103 @@
+/*
+
+Xilinx Vivado v2018.2 (64-bit) [Major: 2018, Minor: 2]
+SW Build: 2258646 on Thu Jun 14 20:02:38 MDT 2018
+IP Build: 2256618 on Thu Jun 14 22:10:49 MDT 2018
+
+Process ID: 76386
+License: Customer
+
+Current time: 	Tue Feb 04 00:29:27 CET 2025
+Time zone: 	Central European Time (Europe/Berlin)
+
+OS: Ubuntu
+OS Version: 5.15.167.4-microsoft-standard-WSL2
+OS Architecture: amd64
+Available processors (cores): 4
+
+Display: :0
+Screen size: 1920x1080
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 880 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	/opt/Xilinx/Vivado/2018.2/tps/lnx64/jre
+Java executable location: 	/opt/Xilinx/Vivado/2018.2/tps/lnx64/jre/bin/java
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 2 GB
+
+
+User name: 	haoyu
+User home directory: /home/haoyu
+User working directory: /home/haoyu/workspace/riscv/riscvBoy/fpga
+User country: 	null
+User language: 	en
+User locale: 	en
+
+RDI_BASEROOT: /opt/Xilinx/Vivado
+HDI_APPROOT: /opt/Xilinx/Vivado/2018.2
+RDI_DATADIR: /opt/Xilinx/Vivado/2018.2/data
+RDI_BINDIR: /opt/Xilinx/Vivado/2018.2/bin
+
+Vivado preferences file location: /home/haoyu/.Xilinx/Vivado/2018.2/vivado.xml
+Vivado preferences directory: /home/haoyu/.Xilinx/Vivado/2018.2/
+Vivado layouts directory: /home/haoyu/.Xilinx/Vivado/2018.2/layouts
+PlanAhead jar file location: 	/opt/Xilinx/Vivado/2018.2/lib/classes/planAhead.jar
+Vivado log file location: 	/home/haoyu/workspace/riscv/riscvBoy/fpga/vivado.log
+Vivado journal file location: 	/home/haoyu/workspace/riscv/riscvBoy/fpga/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-76386-DESKTOP-K3HRFVS
+
+Xilinx Environment Variables
+----------------------------
+XILINX: /opt/Xilinx/Vivado/2018.2/ids_lite/ISE
+XILINX_DSP: /opt/Xilinx/Vivado/2018.2/ids_lite/ISE
+XILINX_PLANAHEAD: /opt/Xilinx/Vivado/2018.2
+XILINX_SDK: /opt/Xilinx/SDK/2018.2
+XILINX_VIVADO: /opt/Xilinx/Vivado/2018.2
+XILINX_VIVADO_HLS: /opt/Xilinx/Vivado/2018.2
+
+
+GUI allocated memory:	133 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 812 MB
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// [GUI Memory]: 53 MB (+53061kb) [00:00:11]
+// [Engine Memory]: 800 MB (+686909kb) [00:00:11]
+// Tcl Message: start_gui 
+// [GUI Memory]: 57 MB (+1343kb) [00:00:15]
+// HMemoryUtils.trashcanNow. Engine heap size: 812 MB. GUI used memory: 32 MB. Current time: 2/4/25 12:29:30 AM CET
+selectButton(PAResourceEtoH.GettingStartedView_CREATE_NEW_PROJECT, "Create Project"); // x (w, ck)
+// Run Command: PAResourceCommand.PACommandNames_NEW_PROJECT
+// [Engine Memory]: 845 MB (+6096kb) [00:00:23]
+// f (ck): New Project: addNotify
+// 'g' command handler elapsed time: 5 seconds
+dismissDialog("New Project"); // f (ck)
+selectButton(PAResourceEtoH.GettingStartedView_OPEN_EXAMPLE_PROJECT, "Open Example Project"); // x (w, ck)
+// a (ck): Open Example Project: addNotify
+selectButton("NEXT", "Next >"); // JButton (j, a)
+selectTree(PAResourceItoN.NewProjectWizard_PROJECT_TEMPLATE_TREE, "[Designs, Configurable Zynq UltraScale+ MPSoC Design]", 5, false); // i (O, a)
+selectTree(PAResourceItoN.NewProjectWizard_PROJECT_TEMPLATE_TREE, "[Designs, Configurable MicroBlaze Design]", 4, false); // i (O, a)
+selectTree(PAResourceItoN.NewProjectWizard_PROJECT_TEMPLATE_TREE, "[Designs, Base Zynq UltraScale+ MPSoC]", 0, false); // i (O, a)
+selectTree(PAResourceItoN.NewProjectWizard_PROJECT_TEMPLATE_TREE, "[Designs, Base MicroBlaze]", 1, false); // i (O, a)
+selectTree(PAResourceItoN.NewProjectWizard_PROJECT_TEMPLATE_TREE, "[Designs, Base Zynq]", 2, false); // i (O, a)
+selectTree(PAResourceItoN.NewProjectWizard_PROJECT_TEMPLATE_TREE, "[Designs, Configurable MicroBlaze Design]", 4, false); // i (O, a)
+selectTree(PAResourceItoN.NewProjectWizard_PROJECT_TEMPLATE_TREE, "[Designs, Configurable Zynq UltraScale+ MPSoC Design]", 5, false); // i (O, a)
+selectTree(PAResourceItoN.NewProjectWizard_PROJECT_TEMPLATE_TREE, "[Designs, Configurable Zynq UltraScale+ MPSoC Design]", 5, false); // i (O, a)
+selectTree(PAResourceItoN.NewProjectWizard_PROJECT_TEMPLATE_TREE, "[Designs, CPU (HDL)]", 6, false); // i (O, a)
+selectTree(PAResourceItoN.NewProjectWizard_PROJECT_TEMPLATE_TREE, "[Designs, CPU (Synthesized)]", 7, false); // i (O, a)
+selectTree(PAResourceItoN.NewProjectWizard_PROJECT_TEMPLATE_TREE, "[Designs, Wavegen (HDL)]", 8, false); // i (O, a)
+selectTree(PAResourceItoN.NewProjectWizard_PROJECT_TEMPLATE_TREE, "[Designs, CPU (HDL)]", 6, false); // i (O, a)
+selectTree(PAResourceItoN.NewProjectWizard_PROJECT_TEMPLATE_TREE, "[Designs, Configurable MicroBlaze Design]", 4, false); // i (O, a)
+dismissDialog("Open Example Project"); // a (ck)
+selectButton(PAResourceEtoH.GettingStartedView_MANAGE_IP, "Manage IP"); // x (w, ck)
+selectMenuItem(PAResourceEtoH.GettingStartedView_START_USING_VIVADO_WITH_IP_CATALOG, "New IP Location..."); // ad (aj, ck)
+// Run Command: PAResourceCommand.PACommandNames_NEW_IP_LOCATION
+// ab (ck): New IP Location: addNotify
+selectButton("NEXT", "Next >"); // JButton (j, ab)

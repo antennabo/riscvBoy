@@ -1,0 +1,289 @@
+
+*** Running vivado
+    with args -log SDP_RAM.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source SDP_RAM.tcl
+
+
+****** Vivado v2018.2 (64-bit)
+  **** SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+  **** IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+    ** Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+source SDP_RAM.tcl -notrace
+Command: synth_design -top SDP_RAM -part xa7a15tcpg236-2I
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xa7a15t'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xa7a15t'
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 3569 
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 1269.582 ; gain = 86.973 ; free physical = 1201 ; free virtual = 3333
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'SDP_RAM' [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:1]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]
+	Parameter RAM_TYPE bound to: BRAM - type: string 
+	Parameter DATA_W bound to: 2 - type: integer 
+	Parameter RAM_DEPTH bound to: 256 - type: integer 
+	Parameter DEPTH_W bound to: 8 - type: integer 
+	Parameter LATENCY bound to: NORMAL - type: string 
+	Parameter INIT_FILE bound to: (null) - type: string 
+INFO: [Synth 8-5811] Detected attribute (* ram_style  = "block" *) on module SDP_RAM 
+	Parameter RAM_STYLE bound to: block - type: string 
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]
+WARNING: [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]
+INFO: [Synth 8-6155] done synthesizing module 'SDP_RAM' (1#1) [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:1]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1314.207 ; gain = 131.598 ; free physical = 1193 ; free virtual = 3326
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1314.207 ; gain = 131.598 ; free physical = 1194 ; free virtual = 3327
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xa7a15tcpg236-2I
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:03 ; elapsed = 00:00:03 . Memory (MB): peak = 1322.211 ; gain = 139.602 ; free physical = 1190 ; free virtual = 3323
+---------------------------------------------------------------------------------
+INFO: [Device 21-403] Loading part xa7a15tcpg236-2I
+INFO: [Synth 8-5583] The signal MEM_reg is implemented as block RAM but is better mapped onto distributed LUT RAM for the following reason(s): The depth (8 address bits) is shallow. Please use attribute (* ram_style = "distributed" *) to instruct Vivado to infer distributed LUT RAM.
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 1330.219 ; gain = 147.609 ; free physical = 1184 ; free virtual = 3317
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Registers : 
+	                2 Bit    Registers := 2     
++---RAMs : 
+	              512 Bit         RAMs := 1     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module SDP_RAM 
+Detailed RTL Component Info : 
++---Registers : 
+	                2 Bit    Registers := 2     
++---RAMs : 
+	              512 Bit         RAMs := 1     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 45 (col length:60)
+BRAMs: 50 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+INFO: [Synth 8-5583] The signal MEM_reg is implemented as block RAM but is better mapped onto distributed LUT RAM for the following reason(s): The depth (8 address bits) is shallow. Please use attribute (* ram_style = "distributed" *) to instruct Vivado to infer distributed LUT RAM.
+INFO: [Synth 8-4652] Swapped enable and write-enable on 1 RAM instances of RAM MEM_reg to conserve power
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:21 . Memory (MB): peak = 1429.547 ; gain = 246.938 ; free physical = 1068 ; free virtual = 3202
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Preliminary Mapping  Report (see note below)
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|SDP_RAM     | MEM_reg    | 256 x 2(READ_FIRST)    | W |   | 256 x 2(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+Note: The tale above is a preliminary report that shows the Block RAMs at the current stage of the synthesis flow. Some Block RAMs may be reimplemented as non Block RAM primitives later in the synthesis flow. Multiple instantiated Block RAMs are reported only once. 
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4480] The timing for the instance i_0/MEM_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+No constraint files found.
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:00:10 ; elapsed = 00:00:21 . Memory (MB): peak = 1429.547 ; gain = 246.938 ; free physical = 1068 ; free virtual = 3202
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Block RAM: Final Mapping  Report
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|Module Name | RTL Object | PORT A (Depth x Width) | W | R | PORT B (Depth x Width) | W | R | Ports driving FF | RAMB18 | RAMB36 | 
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+|SDP_RAM     | MEM_reg    | 256 x 2(READ_FIRST)    | W |   | 256 x 2(WRITE_FIRST)   |   | R | Port A and B     | 1      | 0      | 
++------------+------------+------------------------+---+---+------------------------+---+---+------------------+--------+--------+
+
+---------------------------------------------------------------------------------
+Finished ROM, RAM, DSP and Shift Register Reporting
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+INFO: [Synth 8-4480] The timing for the instance MEM_reg (implemented as a block RAM) might be sub-optimal as no optional output register could be merged into the block ram. Providing additional output register may help in improving timing.
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:00:10 ; elapsed = 00:00:21 . Memory (MB): peak = 1437.555 ; gain = 254.945 ; free physical = 1067 ; free virtual = 3200
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:10 ; elapsed = 00:00:22 . Memory (MB): peak = 1437.555 ; gain = 254.945 ; free physical = 1067 ; free virtual = 3200
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:10 ; elapsed = 00:00:22 . Memory (MB): peak = 1437.555 ; gain = 254.945 ; free physical = 1067 ; free virtual = 3200
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:10 ; elapsed = 00:00:22 . Memory (MB): peak = 1437.555 ; gain = 254.945 ; free physical = 1067 ; free virtual = 3200
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:10 ; elapsed = 00:00:22 . Memory (MB): peak = 1437.555 ; gain = 254.945 ; free physical = 1067 ; free virtual = 3200
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:22 . Memory (MB): peak = 1437.555 ; gain = 254.945 ; free physical = 1067 ; free virtual = 3200
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:10 ; elapsed = 00:00:22 . Memory (MB): peak = 1437.555 ; gain = 254.945 ; free physical = 1067 ; free virtual = 3200
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+---------+------+
+|      |Cell     |Count |
++------+---------+------+
+|1     |BUFG     |     1|
+|2     |RAMB18E1 |     1|
+|3     |FDCE     |     2|
+|4     |IBUF     |    22|
+|5     |OBUF     |     2|
++------+---------+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |    28|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:10 ; elapsed = 00:00:22 . Memory (MB): peak = 1437.555 ; gain = 254.945 ; free physical = 1067 ; free virtual = 3200
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 18 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:10 ; elapsed = 00:00:22 . Memory (MB): peak = 1437.555 ; gain = 254.945 ; free physical = 1073 ; free virtual = 3206
+Synthesis Optimization Complete : Time (s): cpu = 00:00:10 ; elapsed = 00:00:22 . Memory (MB): peak = 1437.562 ; gain = 254.945 ; free physical = 1072 ; free virtual = 3206
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 23 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+17 Infos, 18 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:24 . Memory (MB): peak = 1527.375 ; gain = 357.246 ; free physical = 1031 ; free virtual = 3165
+WARNING: [Constraints 18-5210] No constraint will be written out.
+INFO: [Common 17-1381] The checkpoint '/home/haoyu/workspace/riscv/riscvBoy/fpga/example/example.runs/synth_1/SDP_RAM.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file SDP_RAM_utilization_synth.rpt -pb SDP_RAM_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.04 . Memory (MB): peak = 1551.387 ; gain = 0.000 ; free physical = 1030 ; free virtual = 3164
+INFO: [Common 17-206] Exiting Vivado at Tue Feb  4 10:02:12 2025...

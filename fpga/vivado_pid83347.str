@@ -1,0 +1,816 @@
+/*
+
+Xilinx Vivado v2018.2 (64-bit) [Major: 2018, Minor: 2]
+SW Build: 2258646 on Thu Jun 14 20:02:38 MDT 2018
+IP Build: 2256618 on Thu Jun 14 22:10:49 MDT 2018
+
+Process ID: 83347
+License: Customer
+
+Current time: 	Tue Feb 04 08:14:27 CET 2025
+Time zone: 	Central European Time (Europe/Berlin)
+
+OS: Ubuntu
+OS Version: 5.15.167.4-microsoft-standard-WSL2
+OS Architecture: amd64
+Available processors (cores): 4
+
+Display: :0
+Screen size: 1920x1080
+Screen resolution (DPI): 96
+Available screens: 1
+Available disk space: 880 GB
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+
+Java version: 	1.8.0_112 64-bit
+Java home: 	/opt/Xilinx/Vivado/2018.2/tps/lnx64/jre
+Java executable location: 	/opt/Xilinx/Vivado/2018.2/tps/lnx64/jre/bin/java
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 2 GB
+
+
+User name: 	haoyu
+User home directory: /home/haoyu
+User working directory: /home/haoyu/workspace/riscv/riscvBoy/fpga
+User country: 	null
+User language: 	en
+User locale: 	en
+
+RDI_BASEROOT: /opt/Xilinx/Vivado
+HDI_APPROOT: /opt/Xilinx/Vivado/2018.2
+RDI_DATADIR: /opt/Xilinx/Vivado/2018.2/data
+RDI_BINDIR: /opt/Xilinx/Vivado/2018.2/bin
+
+Vivado preferences file location: /home/haoyu/.Xilinx/Vivado/2018.2/vivado.xml
+Vivado preferences directory: /home/haoyu/.Xilinx/Vivado/2018.2/
+Vivado layouts directory: /home/haoyu/.Xilinx/Vivado/2018.2/layouts
+PlanAhead jar file location: 	/opt/Xilinx/Vivado/2018.2/lib/classes/planAhead.jar
+Vivado log file location: 	/home/haoyu/workspace/riscv/riscvBoy/fpga/vivado.log
+Vivado journal file location: 	/home/haoyu/workspace/riscv/riscvBoy/fpga/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-83347-DESKTOP-K3HRFVS
+
+Xilinx Environment Variables
+----------------------------
+XILINX: /opt/Xilinx/Vivado/2018.2/ids_lite/ISE
+XILINX_DSP: /opt/Xilinx/Vivado/2018.2/ids_lite/ISE
+XILINX_PLANAHEAD: /opt/Xilinx/Vivado/2018.2
+XILINX_SDK: /opt/Xilinx/SDK/2018.2
+XILINX_VIVADO: /opt/Xilinx/Vivado/2018.2
+XILINX_VIVADO_HLS: /opt/Xilinx/Vivado/2018.2
+
+
+GUI allocated memory:	162 MB
+GUI max memory:		3,052 MB
+Engine allocated memory: 854 MB
+
+Copyright 1986-2018 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// [GUI Memory]: 64 MB (+64249kb) [00:00:09]
+// [Engine Memory]: 853 MB (+743328kb) [00:00:09]
+// HMemoryUtils.trashcanNow. Engine heap size: 854 MB. GUI used memory: 37 MB. Current time: 2/4/25 8:14:29 AM CET
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_HELP, "Help"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_DESIGN_HUBS, "Design Hubs"); // aa (ck)
+selectMenu(PAResourceItoN.MainMenuMgr_DESIGN_HUBS, "Design Hubs"); // aa (ck)
+selectMenu(PAResourceItoN.MainMenuMgr_DESIGN_HUBS, "Design Hubs"); // aa (ck)
+selectMenu(PAResourceItoN.MainMenuMgr_DESIGN_HUBS, "Design Hubs"); // aa (ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_HELP, "Help"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // V (q, ck)
+selectMenu(RDIResourceCommand.RDICommands_CUSTOM_COMMANDS, "Custom Commands"); // aa (ck)
+selectMenu(RDIResourceCommand.RDICommands_CUSTOM_COMMANDS, "Custom Commands"); // aa (ck)
+selectMenuItem(PAResourceCommand.PACommandNames_LANGUAGE_TEMPLATES, "Language Templates"); // ad (ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // V (q, ck)
+// Run Command: PAResourceCommand.PACommandNames_LANGUAGE_TEMPLATES
+// a (ck): Language Templates: addNotify
+expandTree(PAResourceItoN.LanguageTemplatesDialog_TEMPLATES_TREE, "[Templates, Verilog]", 0); // i (O, a)
+expandTree(PAResourceItoN.LanguageTemplatesDialog_TEMPLATES_TREE, "[Templates, Verilog, Synthesis Constructs]", 6); // i (O, a)
+expandTree(PAResourceItoN.LanguageTemplatesDialog_TEMPLATES_TREE, "[Templates, Verilog, Synthesis Constructs, Example Modules]", 12); // i (O, a)
+expandTree(PAResourceItoN.LanguageTemplatesDialog_TEMPLATES_TREE, "[Templates, Verilog, Synthesis Constructs, Example Modules, RAM]", 15); // i (O, a)
+// HMemoryUtils.trashcanNow. Engine heap size: 877 MB. GUI used memory: 37 MB. Current time: 2/4/25 8:16:38 AM CET
+expandTree(PAResourceItoN.LanguageTemplatesDialog_TEMPLATES_TREE, "[Templates, Verilog, Synthesis Constructs, Example Modules, RAM, BlockRAM]", 16); // i (O, a)
+expandTree(PAResourceItoN.LanguageTemplatesDialog_TEMPLATES_TREE, "[Templates, Verilog, Synthesis Constructs, Example Modules, RAM, BlockRAM, Simple Dual Port]", 17); // i (O, a)
+selectTree(PAResourceItoN.LanguageTemplatesDialog_TEMPLATES_TREE, "[Templates, Verilog, Synthesis Constructs, Example Modules, RAM, BlockRAM, Simple Dual Port, 1 Clock]", 18, false); // i (O, a)
+// Elapsed time: 29 seconds
+typeControlKey(null, null, 'c'); // c (c, a)
+typeControlKey(null, null, 'c'); // c (c, a)
+// Elapsed time: 163 seconds
+typeControlKey(null, null, 'c'); // c (c, a)
+// Elapsed time: 320 seconds
+typeControlKey(null, null, 'c'); // c (c, a)
+dismissDialog("Language Templates"); // a (ck)
+// Elapsed time: 325 seconds
+selectButton(PAResourceEtoH.GettingStartedView_OPEN_PROJECT, "Open Project"); // x (w, ck)
+// Run Command: PAResourceCommand.PACommandNames_OPEN_PROJECT
+setFileChooser("/home/haoyu/workspace/riscv/riscvBoy/fpga/example/example.xpr");
+// Opening Vivado Project: /home/haoyu/workspace/riscv/riscvBoy/fpga/example/example.xpr. Version: Vivado v2018.2 
+// bx (ck):  Open Project : addNotify
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project /home/haoyu/workspace/riscv/riscvBoy/fpga/example/example.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 919 MB (+24075kb) [00:16:30]
+// Tcl Message: open_project /home/haoyu/workspace/riscv/riscvBoy/fpga/example/example.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2018.2/data/ip'. 
+// TclEventType: PROJECT_NEW
+// [Engine Memory]: 1,004 MB (+40695kb) [00:16:33]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,018 MB. GUI used memory: 40 MB. Current time: 2/4/25 8:30:52 AM CET
+// Project name: example; location: /home/haoyu/workspace/riscv/riscvBoy/fpga/example; part: xc7vx485tffg1157-1
+// 'i' command handler elapsed time: 10 seconds
+selectButton(PAResourceEtoH.GettingStartedView_OPEN_PROJECT, "Open Project"); // x (w)
+// Tcl Message: open_project: Time (s): cpu = 00:00:10 ; elapsed = 00:00:06 . Memory (MB): peak = 6126.609 ; gain = 107.316 ; free physical = 524 ; free virtual = 3015 
+dismissDialog("Open Project"); // bx (ck)
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Tcl Message: update_compile_order -fileset sources_1 
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_REPORTS, "Reports"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_REPORTS, "Reports"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // V (q, ck)
+selectMenu(RDIResource.MainWinMenuMgr_LAYOUT, "Layout"); // V (q, ck)
+dismissMenu(RDIResource.MainWinMenuMgr_LAYOUT, "Layout"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // V (q, ck)
+// [GUI Memory]: 72 MB (+5381kb) [00:17:03]
+dismissMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // V (q, ck)
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Libraries", 1); // i (N, ck)
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Compile Order", 2); // i (N, ck)
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Libraries", 1); // i (N, ck)
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Hierarchy", 0); // i (N, ck)
+selectButton(RDIResourceCommand.RDICommands_SETTINGS, "xc7vx485tffg1157-1"); // h (Q, ck)
+// Run Command: RDIResourceCommand.RDICommands_SETTINGS
+// Tcl Command: 'rdi::info_commands {device::*}'
+// Tcl Command: 'rdi::info_commands {debug::*}'
+// Tcl Command: 'rdi::info_commands {*}'
+// C (ck): Settings: addNotify
+selectButton(RDIResourceCommand.RDICommands_SETTINGS, "xc7vx485tffg1157-1"); // h (Q, ck)
+selectButton(PAResourceQtoS.SettingsProjectGeneralPage_CHOOSE_DEVICE_FOR_YOUR_PROJECT, (String) null); // q (a, C)
+selectButton(PAResourceQtoS.SettingsProjectGeneralPage_CHOOSE_DEVICE_FOR_YOUR_PROJECT, (String) null); // q (a, C)
+// [GUI Memory]: 92 MB (+16901kb) [00:17:24]
+// c (C): Select Device: addNotify
+// [Engine Memory]: 1,055 MB (+1171kb) [00:17:27]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,056 MB. GUI used memory: 57 MB. Current time: 2/4/25 8:31:49 AM CET
+// Elapsed time: 10 seconds
+selectTable(PAResourceEtoH.FPGAChooser_FPGA_TABLE, "xa7a15tcpg236-2I ; 236 ; 106 ; 10400 ; 20800 ; 25 ; 0 ; 45 ; 2 ; 2 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 1 ; 5 ; -40 ; 100 ; 100 ; I ; 0.95 ; 0.95 ; 1.05", 6, "10400", 3); // v (O, c)
+selectTable(PAResourceEtoH.FPGAChooser_FPGA_TABLE, "xa7a15tcpg236-2I ; 236 ; 106 ; 10400 ; 20800 ; 25 ; 0 ; 45 ; 2 ; 2 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 1 ; 5 ; -40 ; 100 ; 100 ; I ; 0.95 ; 0.95 ; 1.05", 6, "10400", 3, false, false, false, false, true); // v (O, c) - Double Click
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (c)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (c)
+dismissDialog("Select Device"); // c (C)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (C)
+// bx (ck):  Change Settings : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: PART_MODIFIED
+// Tcl Message: set_property part xa7a15tcpg236-2I [current_project] 
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (C)
+dismissDialog("Change Settings"); // bx (ck)
+// TclEventType: CREATE_IP_CATALOG
+dismissDialog("Settings"); // C (ck)
+// Tcl Message: update_ip_catalog 
+// [GUI Memory]: 100 MB (+4265kb) [00:17:39]
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// bx (ck):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (ck): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: RUN_LAUNCH
+// Tcl Message: launch_runs synth_1 -jobs 2 
+// TclEventType: RUN_MODIFY
+// Tcl Message: [Tue Feb  4 08:32:03 2025] Launched synth_1... Run output will be captured here: /home/haoyu/workspace/riscv/riscvBoy/fpga/example/example.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 3 seconds
+dismissDialog("Starting Design Runs"); // bx (ck)
+// PAPropertyPanels.initPanels (SDP_RAM.v) elapsed time: 0.2s
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, SDP_RAM (SDP_RAM.v)]", 1, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, SDP_RAM (SDP_RAM.v)]", 1, false, false, false, false, false, true); // B (D, ck) - Double Click
+// HMemoryUtils.trashcanNow. Engine heap size: 1,081 MB. GUI used memory: 59 MB. Current time: 2/4/25 8:32:14 AM CET
+// TclEventType: RUN_COMPLETED
+// WARNING: HTimer (ActiveMsgMonitor Process Messages Timer) is taking 806ms to process. Increasing delay to 2000 ms.
+// ah (ck): Synthesis Completed: addNotify
+// Elapsed time: 50 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+dismissDialog("Synthesis Completed"); // ah (ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 17 seconds
+selectButton(PAResourceAtoD.AbstractFileView_RELOAD, "Reload"); // h (cM, ck)
+// [Engine Memory]: 1,108 MB (+176kb) [00:19:02]
+// HOptionPane Warning: 'A background task is running. Please wait until it completes and try again. (Background Task)'
+// HMemoryUtils.trashcanNow. Engine heap size: 1,109 MB. GUI used memory: 59 MB. Current time: 2/4/25 8:33:21 AM CET
+selectButton(PAResourceAtoD.AbstractFileView_RELOAD, "Reload"); // h (cM, ck)
+selectButton("OptionPane.button", "OK"); // JButton (A, G)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// bx (ck):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (ck): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs synth_1 -jobs 2 
+// Tcl Message: [Tue Feb  4 08:33:30 2025] Launched synth_1... Run output will be captured here: /home/haoyu/workspace/riscv/riscvBoy/fpga/example/example.runs/synth_1/runme.log 
+dismissDialog("Starting Design Runs"); // bx (ck)
+// Elapsed time: 11 seconds
+selectButton(PAResourceAtoD.AbstractFileView_RELOAD, "Reload"); // h
+// TclEventType: RUN_COMPLETED
+// ah (ck): Synthesis Completed: addNotify
+// Elapsed time: 35 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+dismissDialog("Synthesis Completed"); // ah (ck)
+// k (ck): Text Changed: addNotify
+// Elapsed time: 30 seconds
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B (k, ck)
+selectButton(RDIResource.ConfirmSaveTextEditsDialog_NO, "No"); // a (k)
+selectButton(RDIResource.ConfirmSaveTextEditsDialog_NO, "No"); // a (k)
+dismissDialog("Text Changed"); // k (ck)
+selectButton(PAResourceQtoS.RunGadget_SHOW_WARNING_AND_ERROR_MESSAGES_IN_MESSAGES, "11 warnings"); // h (Q, ck)
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+selectButton(PAResourceQtoS.RunGadget_SHOW_WARNING_AND_ERROR_MESSAGES_IN_MESSAGES, "11 warnings"); // h (Q)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]. ]", 1, true); // ah (O, ck) - Node
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v;-;;-;16;-;line;-;74;-;;-;16;-;"); // ah (O, ck)
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]. ]", 1); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]. , [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]. ]", 2, false); // ah (O, ck)
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v;-;;-;16;-;line;-;74;-;;-;16;-;"); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]. , [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]. ]", 3, false); // ah (O, ck)
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v;-;;-;16;-;line;-;74;-;;-;16;-;"); // ah (O, ck)
+collapseTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]. ]", 1); // ah (O, ck)
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-3331] design SDP_RAM has unconnected port addra[2]. ]", 2); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-3331] design SDP_RAM has unconnected port addra[2]. , [Synth 8-3331] design SDP_RAM has unconnected port addrb[2]. ]", 3, false); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-3331] design SDP_RAM has unconnected port addra[2]. , [Synth 8-3331] design SDP_RAM has unconnected port addrb[2]. ]", 3, false, false, false, false, false, true); // ah (O, ck) - Double Click
+// Elapsed time: 17 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // V (q, ck)
+selectMenu(RDIResource.MainWinMenuMgr_LAYOUT, "Layout"); // V (q, ck)
+dismissMenu(RDIResource.MainWinMenuMgr_LAYOUT, "Layout"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_FLOW, "Flow"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_EDIT, "Edit"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_REPORTS, "Reports"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_WINDOW, "Window"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_HELP, "Help"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_HELP, "Help"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_VIEW, "View"); // V (q, ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_REPORTS, "Reports"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_REPORTS, "Reports"); // V (q, ck)
+selectMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // V (q, ck)
+selectMenu(RDIResourceCommand.RDICommands_CUSTOM_COMMANDS, "Custom Commands"); // aa (ck)
+selectMenuItem(PAResourceCommand.PACommandNames_LANGUAGE_TEMPLATES, "Language Templates"); // ad (ck)
+dismissMenu(PAResourceItoN.MainMenuMgr_TOOLS, "Tools"); // V (q, ck)
+// Run Command: PAResourceCommand.PACommandNames_LANGUAGE_TEMPLATES
+// [GUI Memory]: 108 MB (+2532kb) [00:21:23]
+// a (ck): Language Templates: addNotify
+dismissDialog("Language Templates"); // a (ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// HMemoryUtils.trashcanNow. Engine heap size: 1,141 MB. GUI used memory: 60 MB. Current time: 2/4/25 8:35:59 AM CET
+// Elapsed time: 15 seconds
+selectButton(PAResourceAtoD.AbstractFileView_RELOAD, "Reload"); // h (cM, ck)
+selectButton(PAResourceAtoD.AbstractFileView_RELOAD, "Reload"); // h
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// aj (ck): Save Project: addNotify
+selectButton(PAResourceQtoS.SaveProjectUtils_SAVE, "Save"); // a (aj)
+selectButton(PAResourceQtoS.SaveProjectUtils_SAVE, "Save"); // a (aj)
+// bx (ck):  Save Constraints : addNotify
+// TclEventType: DG_GRAPH_STALE
+// bx (ck):  Resetting Runs : addNotify
+dismissDialog("Save Project"); // aj (ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: RUN_MODIFY
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (ck): Launch Runs: addNotify
+// TclEventType: DG_ANALYSIS_MSG_RESET
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: RUN_LAUNCH
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs synth_1 -jobs 2 
+// Tcl Message: [Tue Feb  4 08:36:08 2025] Launched synth_1... Run output will be captured here: /home/haoyu/workspace/riscv/riscvBoy/fpga/example/example.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 5 seconds
+dismissDialog("Starting Design Runs"); // bx (ck)
+// TclEventType: RUN_COMPLETED
+// ah (ck): Synthesis Completed: addNotify
+// Elapsed time: 51 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+dismissDialog("Synthesis Completed"); // ah (ck)
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-3331] design SDP_RAM has unconnected port addra[1]. ]", 2); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-3331] design SDP_RAM has unconnected port addra[1]. , [Synth 8-3331] design SDP_RAM has unconnected port addrb[1]. ]", 3, false); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-3331] design SDP_RAM has unconnected port addra[1]. , [Synth 8-3331] design SDP_RAM has unconnected port addrb[1]. ]", 3, false, false, false, false, false, true); // ah (O, ck) - Double Click
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// [Engine Memory]: 1,174 MB (+11363kb) [00:23:20]
+// TclEventType: DG_GRAPH_GENERATED
+// HMemoryUtils.trashcanNow. Engine heap size: 1,174 MB. GUI used memory: 61 MB. Current time: 2/4/25 8:37:40 AM CET
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// HMemoryUtils.trashcanNow. Engine heap size: 1,207 MB. GUI used memory: 61 MB. Current time: 2/4/25 8:38:10 AM CET
+// Elapsed time: 83 seconds
+selectCodeEditor("SDP_RAM.v", 172, 88); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 15 seconds
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, SDP_RAM (SDP_RAM.v)]", 1, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, SDP_RAM (SDP_RAM.v)]", 1, false, false, false, false, false, true); // B (D, ck) - Double Click
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// bx (ck):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (ck): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs synth_1 -jobs 2 
+// Tcl Message: [Tue Feb  4 08:38:57 2025] Launched synth_1... Run output will be captured here: /home/haoyu/workspace/riscv/riscvBoy/fpga/example/example.runs/synth_1/runme.log 
+dismissDialog("Starting Design Runs"); // bx (ck)
+// TclEventType: RUN_COMPLETED
+// ah (ck): Synthesis Completed: addNotify
+// Elapsed time: 47 seconds
+selectRadioButton(PAResourceCommand.PACommandNames_RUN_IMPLEMENTATION, "Run Implementation"); // a (Q, ah)
+selectRadioButton(PAResourceCommand.PACommandNames_GOTO_NETLIST_DESIGN, "Open Synthesized Design"); // a (Q, ah)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_GOTO_NETLIST_DESIGN
+// bx (ck):  Open Synthesized Design : addNotify
+// Tcl Message: open_run synth_1 -name synth_1 
+// Tcl Message: Design is defaulting to impl run constrset: constrs_1 Design is defaulting to synth run part: xa7a15tcpg236-2I 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,235 MB. GUI used memory: 62 MB. Current time: 2/4/25 8:39:51 AM CET
+// [Engine Memory]: 1,237 MB (+3707kb) [00:25:34]
+// [Engine Memory]: 1,300 MB (+1453kb) [00:25:44]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,315 MB. GUI used memory: 62 MB. Current time: 2/4/25 8:40:11 AM CET
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 1,419 MB. GUI used memory: 62 MB. Current time: 2/4/25 8:40:14 AM CET
+// [Engine Memory]: 1,421 MB (+58906kb) [00:25:57]
+// TclEventType: DESIGN_NEW
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// [Engine Memory]: 1,515 MB (+23990kb) [00:25:58]
+// Xgd.load filename: /opt/Xilinx/Vivado/2018.2/data/parts/xilinx/artix7/devint/artix7/xc7a15t/xc7a15t.xgd; ZipEntry: xc7a15t_detail.xgd elapsed time: 0.6s
+// Device: addNotify
+// [GUI Memory]: 120 MB (+7183kb) [00:26:00]
+// DeviceView Instantiated
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 14 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2018.2 INFO: [Device 21-403] Loading part xa7a15tcpg236-2I INFO: [Project 1-570] Preparing netlist for logic optimization INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). INFO: [Project 1-111] Unisim Transformation Summary:   A total of 2 instances were transformed.   RAM16X1D => RAM32X1D (RAMD32, RAMD32): 2 instances  
+// Device view-level: 0.0
+// Tcl Message: open_run: Time (s): cpu = 00:00:21 ; elapsed = 00:00:28 . Memory (MB): peak = 6635.781 ; gain = 314.938 ; free physical = 372 ; free virtual = 2454 
+// 'dP' command handler elapsed time: 29 seconds
+// Elapsed time: 29 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+dismissDialog("Open Synthesized Design"); // bx (ck)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,573 MB. GUI used memory: 92 MB. Current time: 2/4/25 8:40:32 AM CET
+// [Engine Memory]: 1,605 MB (+14739kb) [00:26:18]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,672 MB. GUI used memory: 91 MB. Current time: 2/4/25 8:40:46 AM CET
+// RouteApi::initDelayMediator elapsed time: 31.4s
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// [Engine Memory]: 1,794 MB (+114113kb) [00:26:33]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,814 MB. GUI used memory: 91 MB. Current time: 2/4/25 8:41:28 AM CET
+// Elapsed time: 131 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design, Schematic]", 27, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_SCHEMATIC
+// Schematic: addNotify
+// [GUI Memory]: 129 MB (+2842kb) [00:28:46]
+// Elapsed time: 33 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "SDP_RAM.v", 2); // k (j, ck)
+// HMemoryUtils.trashcanNow. Engine heap size: 1,834 MB. GUI used memory: 91 MB. Current time: 2/4/25 8:43:09 AM CET
+// Elapsed time: 44 seconds
+selectTab((HResource) null, (HResource) null, "Design Runs", 4); // aE (Q, ck)
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "synth_1 ; constrs_1 ; synth_design Complete! ;  ;  ;  ;  ;  ;  ;  ; 4 ; 4 ; 0.0 ; 0 ; 0 ; Tue Feb 04 08:38:57 CET 2025 ; 00:00:44 ; Vivado Synthesis Defaults (Vivado Synthesis 2018) ; Vivado Synthesis Default Reports (Vivado Synthesis 2018) ; xa7a15tcpg236-2I ;  ; Vivado Synthesis Defaults", 0, (String) null, 5, true); // ax (O, ck) - Node
+// PAPropertyPanels.initPanels (synth_1) elapsed time: 0.3s
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "synth_1 ; constrs_1 ; synth_design Complete! ;  ;  ;  ;  ;  ;  ;  ; 4 ; 4 ; 0.0 ; 0 ; 0 ; Tue Feb 04 08:38:57 CET 2025 ; 00:00:44 ; Vivado Synthesis Defaults (Vivado Synthesis 2018) ; Vivado Synthesis Default Reports (Vivado Synthesis 2018) ; xa7a15tcpg236-2I ;  ; Vivado Synthesis Defaults", 0, "100", 3, true); // ax (O, ck) - Node
+collapseTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "synth_1 ; constrs_1 ; synth_design Complete! ;  ;  ;  ;  ;  ;  ;  ; 4 ; 4 ; 0.0 ; 0 ; 0 ; Tue Feb 04 08:38:57 CET 2025 ; 00:00:44 ; Vivado Synthesis Defaults (Vivado Synthesis 2018) ; Vivado Synthesis Default Reports (Vivado Synthesis 2018) ; xa7a15tcpg236-2I ;  ; Vivado Synthesis Defaults", 0); // ax (O, ck)
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "synth_1 ; constrs_1 ; synth_design Complete! ;  ;  ;  ;  ;  ;  ;  ; 4 ; 4 ; 0.0 ; 0 ; 0 ; Tue Feb 04 08:38:57 CET 2025 ; 00:00:44 ; Vivado Synthesis Defaults (Vivado Synthesis 2018) ; Vivado Synthesis Default Reports (Vivado Synthesis 2018) ; xa7a15tcpg236-2I ;  ; Vivado Synthesis Defaults", 0, "100", 3, true, false, false, false, false, true); // ax (O, ck) - Double Click - Node
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "synth_1 ; constrs_1 ; synth_design Complete! ;  ;  ;  ;  ;  ;  ;  ; 4 ; 4 ; 0.0 ; 0 ; 0 ; Tue Feb 04 08:38:57 CET 2025 ; 00:00:44 ; Vivado Synthesis Defaults (Vivado Synthesis 2018) ; Vivado Synthesis Default Reports (Vivado Synthesis 2018) ; xa7a15tcpg236-2I ;  ; Vivado Synthesis Defaults", 0, "100", 3, true); // ax (O, ck) - Node
+expandTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "synth_1 ; constrs_1 ; synth_design Complete! ;  ;  ;  ;  ;  ;  ;  ; 4 ; 4 ; 0.0 ; 0 ; 0 ; Tue Feb 04 08:38:57 CET 2025 ; 00:00:44 ; Vivado Synthesis Defaults (Vivado Synthesis 2018) ; Vivado Synthesis Default Reports (Vivado Synthesis 2018) ; xa7a15tcpg236-2I ;  ; Vivado Synthesis Defaults", 0); // ax (O, ck)
+selectTreeTable(PAResourceEtoH.ExpRunTreePanel_EXP_RUN_TREE_TABLE, "synth_1 ; constrs_1 ; synth_design Complete! ;  ;  ;  ;  ;  ;  ;  ; 4 ; 4 ; 0.0 ; 0 ; 0 ; Tue Feb 04 08:38:57 CET 2025 ; 00:00:44 ; Vivado Synthesis Defaults (Vivado Synthesis 2018) ; Vivado Synthesis Default Reports (Vivado Synthesis 2018) ; xa7a15tcpg236-2I ;  ; Vivado Synthesis Defaults", 0, "100", 3, true, false, false, false, false, true); // ax (O, ck) - Double Click - Node
+// Elapsed time: 10 seconds
+selectCodeEditor("SDP_RAM.v", 236, 374); // ce (w, ck)
+selectTab((HResource) null, (HResource) null, "Reports", 3); // aE (Q, ck)
+selectTab((HResource) null, (HResource) null, "Tcl Console", 0); // aE (Q, ck)
+selectTab((HResource) null, (HResource) null, "Messages", 1); // aE (Q, ck)
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-3331] design SDP_RAM has unconnected port addra[4]. ]", 2); // ah (O, ck)
+// Elapsed time: 40 seconds
+selectCodeEditor("SDP_RAM.v", 132, 261); // ce (w, ck)
+selectCodeEditor("SDP_RAM.v", 132, 261, false, false, false, false, true); // ce (w, ck) - Double Click
+// [GUI Memory]: 138 MB (+2552kb) [00:31:08]
+// Elapsed time: 19 seconds
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]. ]", 1, true); // ah (O, ck) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]. , [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]. ]", 2, false, false, false, false, false, true); // ah (O, ck) - Double Click
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]. , [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]. ]", 11, false); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]. , [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]. ]", 11, false, false, false, false, false, true); // ah (O, ck) - Double Click
+collapseTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]. ]", 1); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-3331] design SDP_RAM has unconnected port addra[4]. , [Synth 8-3331] design SDP_RAM has unconnected port addrb[4]. ]", 4, false); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-3331] design SDP_RAM has unconnected port addra[4]. , [Synth 8-3331] design SDP_RAM has unconnected port addrb[4]. ]", 4, false, false, false, false, false, true); // ah (O, ck) - Double Click
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-3331] design SDP_RAM has unconnected port addra[4]. , [Synth 8-3331] design SDP_RAM has unconnected port addrb[4]. ]", 4, false); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-3331] design SDP_RAM has unconnected port addra[4]. , [Synth 8-3331] design SDP_RAM has unconnected port addrb[4]. ]", 4, false); // ah (O, ck)
+// Elapsed time: 33 seconds
+selectCodeEditor("SDP_RAM.v", 403, 265); // ce (w, ck)
+selectCodeEditor("SDP_RAM.v", 403, 265, false, false, false, false, true); // ce (w, ck) - Double Click
+// Elapsed time: 35 seconds
+selectCodeEditor("SDP_RAM.v", 292, 382); // ce (w, ck)
+selectCodeEditor("SDP_RAM.v", 292, 382, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("SDP_RAM.v", 206, 236); // ce (w, ck)
+selectCodeEditor("SDP_RAM.v", 201, 250); // ce (w, ck)
+selectCodeEditor("SDP_RAM.v", 201, 250, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("SDP_RAM.v", 180, 250); // ce (w, ck)
+selectCodeEditor("SDP_RAM.v", 180, 250, false, false, false, false, true); // ce (w, ck) - Double Click
+selectCodeEditor("SDP_RAM.v", 225, 250); // ce (w, ck)
+selectCodeEditor("SDP_RAM.v", 225, 250, false, false, false, false, true); // ce (w, ck) - Double Click
+// Elapsed time: 30 seconds
+selectCodeEditor("SDP_RAM.v", 318, 54); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 13 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// bx (ck):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (ck): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs synth_1 -jobs 2 
+// Tcl Message: [Tue Feb  4 08:47:36 2025] Launched synth_1... Run output will be captured here: /home/haoyu/workspace/riscv/riscvBoy/fpga/example/example.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 3 seconds
+dismissDialog("Starting Design Runs"); // bx (ck)
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_COMPLETED
+// ah (ck): Synthesis Completed: addNotify
+// Elapsed time: 71 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a (ah)
+dismissDialog("Synthesis Completed"); // ah (ck)
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-3331] design SDP_RAM has unconnected port addra[7]. ]", 2); // ah (O, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// HMemoryUtils.trashcanNow. Engine heap size: 1,861 MB. GUI used memory: 95 MB. Current time: 2/4/25 8:49:18 AM CET
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 70 seconds
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // h (cM, ck)
+// bx (ck):  Reloading : addNotify
+// TclEventType: DESIGN_REFRESH
+// PAPropertyPanels.initPanels (synth_1) elapsed time: 0.3s
+// HMemoryUtils.trashcanNow. Engine heap size: 1,878 MB. GUI used memory: 94 MB. Current time: 2/4/25 8:50:03 AM CET
+// Engine heap size: 1,878 MB. GUI used memory: 95 MB. Current time: 2/4/25 8:50:03 AM CET
+// Tcl Message: refresh_design 
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 1,878 MB. GUI used memory: 67 MB. Current time: 2/4/25 8:50:06 AM CET
+// [Engine Memory]: 1,885 MB (+996kb) [00:35:48]
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Device: addNotify
+// DeviceView Instantiated
+// Schematic: addNotify
+// PAPropertyPanels.initPanels (synth_1) elapsed time: 0.3s
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 13 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2018.2 INFO: [Project 1-570] Preparing netlist for logic optimization INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). 
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// Tcl Message: refresh_design: Time (s): cpu = 00:00:12 ; elapsed = 00:00:07 . Memory (MB): peak = 7009.484 ; gain = 39.566 ; free physical = 606 ; free virtual = 2185 
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // h
+dismissDialog("Reloading"); // bx (ck)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// bx (ck):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (ck): Launch Runs: addNotify
+// Elapsed time: 29 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs synth_1 -jobs 2 
+// Tcl Message: [Tue Feb  4 08:50:41 2025] Launched synth_1... Run output will be captured here: /home/haoyu/workspace/riscv/riscvBoy/fpga/example/example.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 30 seconds
+dismissDialog("Starting Design Runs"); // bx (ck)
+// Elapsed time: 25 seconds
+selectCodeEditor("SDP_RAM.v", 220, 167); // ce (w, ck)
+typeControlKey((HResource) null, "SDP_RAM.v", 'c'); // ce (w, ck)
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_COMPLETED
+// ah (ck): Synthesis Completed: addNotify
+// Elapsed time: 25 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_GOTO_NETLIST_DESIGN
+// bx (ck):  Reloading design : addNotify
+// TclEventType: DESIGN_CLOSE
+// HMemoryUtils.trashcanNow. Engine heap size: 1,911 MB. GUI used memory: 93 MB. Current time: 2/4/25 8:51:36 AM CET
+// Engine heap size: 1,911 MB. GUI used memory: 94 MB. Current time: 2/4/25 8:51:36 AM CET
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: close_design 
+// TclEventType: DESIGN_CLOSE
+// Tcl Message: open_run synth_1 -name synth_1 
+// Tcl Message: Design is defaulting to impl run constrset: constrs_1 Design is defaulting to synth run part: xa7a15tcpg236-2I 
+selectButton(RDIResource.ProgressDialog_BACKGROUND, "Background"); // a (bx)
+selectButton(RDIResource.ProgressDialog_BACKGROUND, "Background"); // a (bx)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 1,911 MB. GUI used memory: 70 MB. Current time: 2/4/25 8:51:38 AM CET
+// TclEventType: DESIGN_NEW
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Device: addNotify
+// DeviceView Instantiated
+// PAPropertyPanels.initPanels (synth_1) elapsed time: 0.2s
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 9 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2018.2 INFO: [Project 1-570] Preparing netlist for logic optimization INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). INFO: [Project 1-111] Unisim Transformation Summary: No Unisim elements were transformed.  
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// Device view-level: 0.0
+dismissDialog("Reloading design"); // bx (ck)
+// Elapsed time: 72 seconds
+selectTab((HResource) null, (HResource) null, "Messages", 1); // aE (Q, ck)
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-3331] design SDP_RAM has unconnected port addra[7]. ]", 2); // ah (O, ck)
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "SDP_RAM.v", 2); // k (j, ck)
+// Elapsed time: 13 seconds
+selectCodeEditor("SDP_RAM.v", 271, 316); // ce (w, ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 43 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// bx (ck):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_RESET
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// f (ck): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs synth_1 -jobs 2 
+// Tcl Message: [Tue Feb  4 08:54:00 2025] Launched synth_1... Run output will be captured here: /home/haoyu/workspace/riscv/riscvBoy/fpga/example/example.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 3 seconds
+dismissDialog("Starting Design Runs"); // bx (ck)
+// [GUI Memory]: 147 MB (+2607kb) [00:40:08]
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_COMPLETED
+// ah (ck): Synthesis Completed: addNotify
+// Elapsed time: 48 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_GOTO_NETLIST_DESIGN
+// bx (ck):  Reloading design : addNotify
+// TclEventType: DESIGN_CLOSE
+// HMemoryUtils.trashcanNow. Engine heap size: 1,913 MB. GUI used memory: 91 MB. Current time: 2/4/25 8:54:52 AM CET
+// Engine heap size: 1,913 MB. GUI used memory: 92 MB. Current time: 2/4/25 8:54:52 AM CET
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: close_design 
+selectButton(RDIResource.ProgressDialog_BACKGROUND, "Background"); // a (bx)
+// TclEventType: DESIGN_CLOSE
+selectButton(RDIResource.ProgressDialog_BACKGROUND, "Background"); // a (bx)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Tcl Message: open_run synth_1 -name synth_1 
+// Tcl Message: Design is defaulting to impl run constrset: constrs_1 Design is defaulting to synth run part: xa7a15tcpg236-2I 
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 1,913 MB. GUI used memory: 71 MB. Current time: 2/4/25 8:54:53 AM CET
+// TclEventType: DESIGN_NEW
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Device: addNotify
+// DeviceView Instantiated
+// PAPropertyPanels.initPanels (synth_1) elapsed time: 0.3s
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 9 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2018.2 INFO: [Project 1-570] Preparing netlist for logic optimization INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). INFO: [Project 1-111] Unisim Transformation Summary: No Unisim elements were transformed.  
+// Device view-level: 0.0
+// RouteApi: Init Delay Mediator Swing Worker Finished
+dismissDialog("Reloading design"); // bx (ck)
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 21 seconds
+selectTab((HResource) null, (HResource) null, "Messages", 1); // aE (Q, ck)
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-3331] design SDP_RAM has unconnected port addra[7]. ]", 2); // ah (O, ck)
+// Elapsed time: 10 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "SDP_RAM.v", 2); // k (j, ck)
+// Elapsed time: 33 seconds
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]. ]", 1); // ah (O, ck)
+collapseTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]. ]", 1); // ah (O, ck)
+selectCheckBox(PAResourceItoN.MsgView_INFORMATION_MESSAGES, (String) null, true); // g (aQ, ck): TRUE
+selectCheckBox(PAResourceItoN.MsgView_INFORMATION_MESSAGES, (String) null, true); // g (aQ, ck): TRUE
+selectCheckBox(PAResourceItoN.MsgView_INFORMATION_MESSAGES, (String) null, false); // g (aQ, ck): FALSE
+selectTab((HResource) null, (HResource) null, "Log", 2); // aE (Q, ck)
+selectTab((HResource) null, (HResource) null, "Messages", 1); // aE (Q, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-3331] design SDP_RAM has unconnected port addra[7]. ]", 2, true); // ah (O, ck) - Node
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-3331] design SDP_RAM has unconnected port addra[7]. , [Synth 8-3331] design SDP_RAM has unconnected port addra[5]. ]", 4, false, false, false, false, false, true); // ah (O, ck) - Double Click
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-3331] design SDP_RAM has unconnected port addra[7]. , [Synth 8-3331] design SDP_RAM has unconnected port addra[5]. ]", 4, false); // ah (O, ck)
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-3331] design SDP_RAM has unconnected port addra[7]. , [Synth 8-3331] design SDP_RAM has unconnected port addra[5]. ]", 4, false, false, false, false, false, true); // ah (O, ck) - Double Click
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design, Schematic]", 27, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_SCHEMATIC
+// Schematic: addNotify
+closeView(PAResourceOtoP.PAViews_SCHEMATIC, "Schematic"); // f
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design, Schematic]", 27, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_SCHEMATIC
+// Schematic: addNotify
+// PAPropertyPanels.initPanels (MEM_reg (RAMB18E1)) elapsed time: 1.3s
+// Elapsed time: 39 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "SDP_RAM.v", 2); // k (j, ck)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// bx (ck):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (ck): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs synth_1 -jobs 2 
+// Tcl Message: [Tue Feb  4 08:57:28 2025] Launched synth_1... Run output will be captured here: /home/haoyu/workspace/riscv/riscvBoy/fpga/example/example.runs/synth_1/runme.log 
+dismissDialog("Starting Design Runs"); // bx (ck)
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+// [GUI Memory]: 157 MB (+3087kb) [00:43:17]
+selectTab((HResource) null, (HResource) null, "Sources", 0); // aE (Q, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, SDP_RAM (SDP_RAM.v)]", 1, false); // B (D, ck)
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, SDP_RAM (SDP_RAM.v)]", 1, false, false, false, false, false, true); // B (D, ck) - Double Click
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_COMPLETED
+// ah (ck): Synthesis Completed: addNotify
+// Elapsed time: 39 seconds
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+// Run Command: PAResourceCommand.PACommandNames_GOTO_NETLIST_DESIGN
+// bx (ck):  Reloading design : addNotify
+// TclEventType: DESIGN_CLOSE
+// HMemoryUtils.trashcanNow. Engine heap size: 1,944 MB. GUI used memory: 97 MB. Current time: 2/4/25 8:58:16 AM CET
+// Engine heap size: 1,944 MB. GUI used memory: 98 MB. Current time: 2/4/25 8:58:16 AM CET
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: close_design 
+// TclEventType: DESIGN_CLOSE
+// Tcl Message: open_run synth_1 -name synth_1 
+// Tcl Message: Design is defaulting to impl run constrset: constrs_1 Design is defaulting to synth run part: xa7a15tcpg236-2I 
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 1,944 MB. GUI used memory: 73 MB. Current time: 2/4/25 8:58:18 AM CET
+// TclEventType: DESIGN_NEW
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Device: addNotify
+// DeviceView Instantiated
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 9 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2018.2 INFO: [Project 1-570] Preparing netlist for logic optimization INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). INFO: [Project 1-111] Unisim Transformation Summary: No Unisim elements were transformed.  
+// Device view-level: 0.0
+// RouteApi: Init Delay Mediator Swing Worker Finished
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (ah)
+dismissDialog("Reloading design"); // bx (ck)
+selectTab((HResource) null, (HResource) null, "Messages", 1); // aE (Q, ck)
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]. ]", 1); // ah (O, ck)
+collapseTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-6104] Input port 'depth' has an internal driver [/home/haoyu/workspace/riscv/riscvBoy/code/rtl/cbb/SDP_RAM.v:74]. ]", 1); // ah (O, ck)
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-3331] design SDP_RAM has unconnected port addra[7]. ]", 2); // ah (O, ck)
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design, Schematic]", 27, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_SCHEMATIC
+// Schematic: addNotify
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_ANALYSIS_MSG_RESET
+// TclEventType: DG_GRAPH_GENERATED
+// Elapsed time: 28 seconds
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // B
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u (O, ck)
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// bx (ck):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_RESET
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// f (ck): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a (f)
+// bx (ck):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f (ck)
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// Tcl Message: launch_runs synth_1 -jobs 2 
+// Tcl Message: [Tue Feb  4 08:59:10 2025] Launched synth_1... Run output will be captured here: /home/haoyu/workspace/riscv/riscvBoy/fpga/example/example.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 7 seconds
+dismissDialog("Starting Design Runs"); // bx (ck)
+// Elapsed time: 18 seconds
+selectTab((HResource) null, (HResource) null, "Design Runs", 4); // aE (Q, ck)
+closeView(PAResourceOtoP.PAViews_SCHEMATIC, "Schematic"); // f

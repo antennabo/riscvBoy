@@ -1,0 +1,20 @@
+#-----------------------------------------------------------
+# Vivado v2018.2 (64-bit)
+# SW Build 2258646 on Thu Jun 14 20:02:38 MDT 2018
+# IP Build 2256618 on Thu Jun 14 22:10:49 MDT 2018
+# Start of session at: Tue Feb  4 08:59:46 2025
+# Process ID: 92138
+# Current directory: /home/haoyu/workspace/riscv/riscvBoy/fpga
+# Command line: vivado
+# Log file: /home/haoyu/workspace/riscv/riscvBoy/fpga/vivado.log
+# Journal file: /home/haoyu/workspace/riscv/riscvBoy/fpga/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/haoyu/workspace/riscv/riscvBoy/fpga/example/example.xpr
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2018.2/data/ip'.
+open_project: Time (s): cpu = 00:00:19 ; elapsed = 00:00:11 . Memory (MB): peak = 6137.680 ; gain = 125.812 ; free physical = 1628 ; free virtual = 3112
+update_compile_order -fileset sources_1
