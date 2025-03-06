@@ -128,7 +128,7 @@ module idu#(
     wire rv32_type_r   = opcode_6_5_01 & opcode_4_2_100 & opcode_1_0_11;
     wire rv32_type_i_i = opcode_6_5_00 & opcode_4_2_100 & opcode_1_0_11;
     wire rv32_type_i_l = opcode_6_5_00 & opcode_4_2_000 & opcode_1_0_11;
-    wire rv32_type_i_j = opcode_6_5_11 & opcode_4_2_011 & opcode_1_0_11;
+    wire rv32_type_i_j = opcode_6_5_11 & opcode_4_2_001 & opcode_1_0_11;
     wire rv32_type_i_f = opcode_6_5_00 & opcode_4_2_011 & opcode_1_0_11;  
     wire rv32_type_b   = opcode_6_5_11 & opcode_4_2_000 & opcode_1_0_11;
     wire rv32_type_s   = opcode_6_5_01 & opcode_4_2_000 & opcode_1_0_11;
@@ -220,20 +220,21 @@ module idu#(
     assign alu_info_bus[ALU_INFO_OR]   = rv32_or | rv32_ori;
     assign alu_info_bus[ALU_INFO_AND]  = rv32_and | rv32_andi;
     assign alu_info_bus[ALU_INFO_IMM_VAL]  = imm_val;
-    assign alu_info_bus[DECODE_INFO_TYPE+DECODE_INFO_TYPE_WIDTH-1:DECODE_INFO_TYPE]=3'b000;
+    assign alu_info_bus[DECODE_INFO_TYPE+DECODE_INFO_TYPE_WIDTH-1:DECODE_INFO_TYPE]=3'b001;
     
     wire imm_val = 
         rv32_type_i_i |
         rv32_type_i_l |
         rv32_type_i_j |
+        rv32_jal|
         rv32_type_b;
 
     wire [31:0] rv32_imm = 
-        ({32{rv32_type_i_i}}&rv32_i_imm) |
+        ({32{rv32_type_i_i|rv32_type_i_j}}&rv32_i_imm) |
         ({32{rv32_type_b  }}&rv32_b_imm) |
         ({32{rv32_type_i_l}}&rv32_i_imm) |
-        ({32{rv32_type_i_j}}&rv32_j_imm) |
-        ({32{rv32_lui     }}&rv32_u_imm)
+        ({32{rv32_jal}}&rv32_j_imm) |
+        ({32{rv32_lui|rv32_auipc}}&rv32_u_imm)
         ;
     
     wire [31:0]  rv32_i_imm = { 
@@ -299,7 +300,7 @@ module idu#(
     wire [BJP_INFO_WIDTH-1:0] bjp_info_bus;
     wire bjp_bus_op = rv32_jal | rv32_jalr|rv32_type_b|rv32_lui|rv32_auipc;
     //assign o_branch = bjp_bus_op;
-    assign bjp_info_bus[BJP_INFO_JUMP] = rv32_jal | rv32_jalr;
+    assign bjp_info_bus[BJP_INFO_JUMP] = rv32_jal;
     assign bjp_info_bus[BJP_INFO_BEQ]  = rv32_beq;
     assign bjp_info_bus[BJP_INFO_BNE]  = rv32_bne;
     assign bjp_info_bus[BJP_INFO_BLT]  = rv32_blt;
@@ -308,9 +309,9 @@ module idu#(
     assign bjp_info_bus[BJP_INFO_BGEU] = rv32_bgeu;
     assign bjp_info_bus[BJP_INFO_SRA]  = rv32_lui;
     assign bjp_info_bus[BJP_INFO_OR]   = rv32_auipc;
-    assign bjp_info_bus[BJP_INFO_AND]  = 1'b0;
+    assign bjp_info_bus[BJP_INFO_AND]  = rv32_jalr;
     assign bjp_info_bus[BJP_INFO_IMM_VAL]  = 1'b0;
-    assign bjp_info_bus[DECODE_INFO_TYPE+DECODE_INFO_TYPE_WIDTH-1:DECODE_INFO_TYPE]=3'b001;
+    assign bjp_info_bus[DECODE_INFO_TYPE+DECODE_INFO_TYPE_WIDTH-1:DECODE_INFO_TYPE]=3'b010;
 
     ////
     //load store instruction}
@@ -328,11 +329,11 @@ module idu#(
     assign agu_info_bus[BJP_INFO_OR]   = 1'b0;
     assign agu_info_bus[BJP_INFO_AND]  = 1'b0;
     assign agu_info_bus[BJP_INFO_IMM_VAL]  = 1'b0;
-    assign agu_info_bus[DECODE_INFO_TYPE+DECODE_INFO_TYPE_WIDTH-1:DECODE_INFO_TYPE]=3'b010;
+    assign agu_info_bus[DECODE_INFO_TYPE+DECODE_INFO_TYPE_WIDTH-1:DECODE_INFO_TYPE]=3'b011;
 
 
     wire [MEM_INFO_WIDTH-1:0] csr_info_bus;
-    wire csr_bus_op = 1'b0;
+    wire csr_bus_op = rv32_type_i_c|rv32_type_i_f;
     assign csr_info_bus[BJP_INFO_JUMP] = rv32_fence;
     assign csr_info_bus[BJP_INFO_BEQ]  = rv32_fence_i;
     assign csr_info_bus[BJP_INFO_BNE]  = rv32_ecall;
@@ -344,7 +345,7 @@ module idu#(
     assign csr_info_bus[BJP_INFO_OR]   = rv32_csrrsi;
     assign csr_info_bus[BJP_INFO_AND]  = rv32_csrrci;
     assign csr_info_bus[BJP_INFO_IMM_VAL]  = 1'b0;
-    assign csr_info_bus[DECODE_INFO_TYPE+DECODE_INFO_TYPE_WIDTH-1:DECODE_INFO_TYPE]=3'b011;
+    assign csr_info_bus[DECODE_INFO_TYPE+DECODE_INFO_TYPE_WIDTH-1:DECODE_INFO_TYPE]=3'b100;
 
     DFF_RST_EN_CLR #(.DATA_WIDTH (DECODE_INFO_BUS_WIDTH)) u_infobus_dff(.clk(clk_sys),.rst(rst_sys),.en(1'b1),.clr(i_id2ex_flush),.d(decode_info_bus),.q(o_decode_info_bus));
     DFF_RST_EN_CLR #(.DATA_WIDTH (32)) u_imm_dff(.clk(clk_sys),.rst(rst_sys),.en(1'b1),.clr(i_id2ex_flush),.d(rv32_imm),.q(o_imm_e));

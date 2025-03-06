@@ -22,8 +22,8 @@ module exu_alu_calc (
     input [36:0] i_sll_info,  
     input [36:0] i_srl_info, 
     input [36:0] i_sra_info, 
-    input [63:0] i_slt_info,
-    input [63:0] i_sltu_info,
+    input [64:0] i_slt_info,
+    input [64:0] i_sltu_info,
     output [2:0] o_cmp_res,
     output [31:0]o_result 
 );
@@ -89,29 +89,33 @@ wire [31:0] sra_result = (sr_shift & sr_shift_mask) | ({32{sra_in1[31]}} & (~sr_
 /*
 slt
 */
+wire  slt_sel;
 wire [31:0] slt_in1;
 wire [31:0] slt_in2;  
-assign {slt_in2,slt_in1} = i_slt_info;
-wire slt_result = $signed(slt_in1) >= $signed(slt_in2);
+assign {slt_sel,slt_in2,slt_in1} = i_slt_info;
+wire slt_result = ($signed(slt_in1) < $signed(slt_in2));//&slt_sel;
 
 /*
 sltu
 Consider merging with SLT in the future.
 */
+wire  sltu_sel;
 wire [31:0] sltu_in1;
 wire [31:0] sltu_in2;  
-assign {sltu_in2,sltu_in1} = i_sltu_info;
-wire sltu_result = sltu_in1 >= sltu_in2;
-wire op1_eq_op2 = (sltu_in1 == sltu_in2);
+assign {sltu_sel,sltu_in2,sltu_in1} = i_sltu_info;
+wire sltu_result = (sltu_in1 < sltu_in2);//&sltu_sel;
+wire op1_eq_op2 = (sltu_in1 == sltu_in2);//&sltu_sel;
 
 assign o_result = 
-    addsub_result |
     or_result |
     xor_result|
     and_result|
     sll_result|
     srl_result|
-    sra_result;
+    sra_result|
+    (sltu_result&sltu_sel)|
+    (slt_result&slt_sel)|
+    addsub_result;
 
 assign o_cmp_res = {slt_result,sltu_result,op1_eq_op2};
 

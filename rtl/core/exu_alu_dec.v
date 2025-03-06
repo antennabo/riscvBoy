@@ -25,7 +25,7 @@ module exu_alu_dec (
     output          o_mem_wreq,
     output          o_mem_rreq,
     //output [31:0]   o_mem_addr,
-    output  [6:0]   o_jump_req,
+    output  [7:0]   o_jump_req,
     //output [31:0] o_jump_addr,  
     output  [64:0] o_add_info,
     output  [63:0] o_or_info,  
@@ -34,8 +34,8 @@ module exu_alu_dec (
     output  [36:0] o_sll_info,  
     output  [36:0] o_srl_info, 
     output  [36:0] o_sra_info,
-    output  [63:0] o_slt_info,
-    output  [63:0] o_sltu_info
+    output  [64:0] o_slt_info,
+    output  [64:0] o_sltu_info
 );
 
 localparam DECODE_INFO_BIT_0  = 0;
@@ -51,10 +51,10 @@ localparam DECODE_INFO_BIT_9  = 9;
 localparam DECODE_INFO_BIT_10 = 10;
 localparam DECODE_INFO_TYPE_WIDTH = 3;
 localparam DECODE_INFO_TYPE = 11;
-wire alu_sel   = alu_info_bus[DECODE_INFO_TYPE+DECODE_INFO_TYPE_WIDTH-1:DECODE_INFO_TYPE]==3'b000;
-wire bjp_sel   = alu_info_bus[DECODE_INFO_TYPE+DECODE_INFO_TYPE_WIDTH-1:DECODE_INFO_TYPE]==3'b001;
-wire agu_sel   = alu_info_bus[DECODE_INFO_TYPE+DECODE_INFO_TYPE_WIDTH-1:DECODE_INFO_TYPE]==3'b010;
-wire csr_sel   = alu_info_bus[DECODE_INFO_TYPE+DECODE_INFO_TYPE_WIDTH-1:DECODE_INFO_TYPE]==3'b011;
+wire alu_sel   = alu_info_bus[DECODE_INFO_TYPE+DECODE_INFO_TYPE_WIDTH-1:DECODE_INFO_TYPE]==3'b001;
+wire bjp_sel   = alu_info_bus[DECODE_INFO_TYPE+DECODE_INFO_TYPE_WIDTH-1:DECODE_INFO_TYPE]==3'b010;
+wire agu_sel   = alu_info_bus[DECODE_INFO_TYPE+DECODE_INFO_TYPE_WIDTH-1:DECODE_INFO_TYPE]==3'b011;
+wire csr_sel   = alu_info_bus[DECODE_INFO_TYPE+DECODE_INFO_TYPE_WIDTH-1:DECODE_INFO_TYPE]==3'b100;
 
 wire rv32_add     = alu_sel&alu_info_bus[DECODE_INFO_BIT_0];
 wire rv32_sub     = alu_sel&alu_info_bus[DECODE_INFO_BIT_1];
@@ -77,6 +77,7 @@ wire rv32_bltu    = bjp_sel&alu_info_bus[DECODE_INFO_BIT_5];
 wire rv32_bgeu    = bjp_sel&alu_info_bus[DECODE_INFO_BIT_6];
 wire rv32_lui     = bjp_sel&alu_info_bus[DECODE_INFO_BIT_7];//handled in decode
 wire rv32_auipc   = bjp_sel&alu_info_bus[DECODE_INFO_BIT_8];
+wire rv32_jalr   = bjp_sel&alu_info_bus[DECODE_INFO_BIT_9];
 
 wire rv32_lb      = agu_sel&alu_info_bus[DECODE_INFO_BIT_0];
 wire rv32_lh      = agu_sel&alu_info_bus[DECODE_INFO_BIT_1];
@@ -108,7 +109,7 @@ wire [31:0] alu_add_op2 = (rv32_sub)? (~op_src2) : op_src2;
 wire cin = rv32_sub;
 
 
-wire bjp_add_sel =  rv32_jal | 
+wire bjp_add_sel =  rv32_jal | rv32_jalr |
                     rv32_auipc;
 wire [31:0] bjp_add_op1 = i_rv32_pc;
 wire [31:0] bjp_add_op2 = (rv32_auipc)? i_rv32_imm : 'h4;
@@ -142,6 +143,7 @@ assign o_add_info ={rv32_sub,{32{alu_add_sel}}&alu_add_op2,{32{alu_add_sel}}&alu
                    {1'b0    ,{32{lui_add_sel}}&lui_add_op2,{32{lui_add_sel}}&lui_add_op1};
                    
 assign o_jump_req = {rv32_jal,
+                    rv32_jalr,
                    rv32_beq,
                    rv32_bne,
                    rv32_blt,
@@ -165,16 +167,17 @@ assign o_sra_info = {{32{rv32_sra}}&sra_op2,{32{rv32_sra}}&sra_op1};
 
 wire [31:0] slt_op1 = i_rv32_rs1;
 wire [31:0] slt_op2 = op_src2;
-assign o_slt_info = {{32{rv32_slt}}&slt_op2,{32{rv32_slt}}&slt_op1};
+assign o_slt_info = {rv32_slt,{32{rv32_slt}}&slt_op2,{32{rv32_slt}}&slt_op1};
 
 //need to add type b
 wire [31:0] sltu_op1 = i_rv32_rs1;
 wire [31:0] sltu_op2 = op_src2;
-assign o_sltu_info = {{32{rv32_sltu|rv32_bne}}&sltu_op2,{32{rv32_sltu|rv32_bne}}&sltu_op1};
+wire sltu_sel = rv32_sltu|rv32_bne;//|rv32_bge;//|rv32_beq;
+assign o_sltu_info = {rv32_sltu,{32{sltu_sel}}&sltu_op2,{32{sltu_sel}}&sltu_op1};
 
 wire [31:0] xor_op1 = i_rv32_rs1;
 wire [31:0] xor_op2 = op_src2;
-assign o_xor_info = {{32{rv32_xor}}&xor_op2,{32{rv32_or}}&xor_op1};
+assign o_xor_info = {{32{rv32_xor}}&xor_op2,{32{rv32_xor}}&xor_op1};
 
 wire [31:0] or_op1  = i_rv32_rs1;
 wire [31:0] or_op2  = op_src2;

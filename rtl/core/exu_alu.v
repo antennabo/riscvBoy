@@ -42,11 +42,11 @@ wire  [63:0] dec_alu_and_info;
 wire  [36:0] dec_alu_sll_info;  
 wire  [36:0] dec_alu_srl_info; 
 wire  [36:0] dec_alu_sra_info;
-wire  [63:0] dec_alu_slt_info;
-wire  [63:0] dec_alu_sltu_info;
+wire  [64:0] dec_alu_slt_info;
+wire  [64:0] dec_alu_sltu_info;
 wire  [31:0] alu_res;
 wire  [2:0] alu_bjp_cmp_res;
-wire  [6:0] dec_bjp_jump_req;
+wire  [7:0] dec_bjp_jump_req;
 wire dec_agu_mem_wreq;
 wire dec_agu_mem_rreq;
 
@@ -94,6 +94,7 @@ exu_alu_calc u_alu_calc(
 ///TBD : move to idu
 ///
 exu_alu_bjp u_alu_bjp(
+     .i_rv32_rs1   (i_rv32_rs1),
      .i_imm        (i_rv32_imm),//input [31:0]        
      .i_pc         (i_rv32_pc),//input [31:0] 
      .i_jump_req   (dec_bjp_jump_req),//input [7:0]  

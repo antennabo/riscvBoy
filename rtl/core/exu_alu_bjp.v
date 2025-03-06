@@ -15,21 +15,29 @@
  */
 
 module exu_alu_bjp(
+    input [31:0]  i_rv32_rs1,
     input [31:0]  i_imm,
     input [31:0]  i_pc,
-    input [6:0]   i_jump_req,
+    input [7:0]   i_jump_req,
     input [2:0]   i_cmp_res,
     output        o_jump_en,
     output [31:0] o_jump_addr
 );
     
 
-wire [31:0] jump_add_op1 = i_pc;
+wire [31:0] jump_add_op1 = (rv32_jalr)? i_rv32_rs1 :i_pc;
+//wire [31:0] jump_add_op1 = i_pc;
 wire [31:0] jump_add_op2 = i_imm;
 
-assign o_jump_addr = jump_add_op1 + jump_add_op2;
+//assign o_jump_addr = (rv32_jalr)? i_rv32_rs1 : (jump_add_op1 + jump_add_op2);
+assign o_jump_addr =  jump_add_op1 + jump_add_op2;
+//wire [31:0] jump_add_op1 = i_pc;
+//wire [31:0] jump_add_op2 = i_imm;
+//assign o_jump_addr = (rv32_jalr) ? ({i_rv32_rs1 + jump_add_op2} & 32'hFFFFFFFE) 
+//                                 : (jump_add_op1 + jump_add_op2);
 
 assign {rv32_jal,
+        rv32_jalr,
         rv32_beq,
         rv32_bne,
         rv32_blt,
@@ -40,6 +48,7 @@ assign {rv32_jal,
 assign {slt_result,sltu_result,op1_eq_op2} = i_cmp_res;
 
 assign o_jump_en=  rv32_jal|
+                   rv32_jalr|
                   (rv32_beq&op1_eq_op2)|
                   (rv32_bne&(~op1_eq_op2))|
                   (rv32_blt&(~slt_result))|
