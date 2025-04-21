@@ -27,7 +27,8 @@ module exu_alu (
     output [4:0]  o_rd_addr,
 
     output        o_mem_wen,        
-    output        o_mem_ren,       
+    output        o_mem_ren,
+    output [31:0] o_mem_wdata,     
     output [31:0] o_mem_addr,
 
     output  o_ecall,
@@ -109,6 +110,8 @@ exu_alu_agu u_alu_agu(
     .i_mem_wreq    (dec_agu_mem_wreq),//input 
     .i_mem_rreq    (dec_agu_mem_rreq),//input
     .i_alu_res     (o_result),//input [31:0] 
+    .i_rs2_data    (i_rv32_rs2),
+    .o_mem_wdata   (o_mem_wdata),
     .o_mem_wen     (o_mem_wen),//output 
     .o_mem_addr    (o_mem_addr),//output [31:0] 
     .o_mem_ren     (o_mem_ren)//output 

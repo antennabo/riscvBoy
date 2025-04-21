@@ -57,7 +57,7 @@ assign pc_nxt_pre = add_op1 + add_op2;
 assign pc_nxt = (i_jump_en)?i_jump_addr: pc_nxt_pre;
 
 DFF_RST_EN_CLR #(.DATA_WIDTH (PC_W)) u_pc_dff(.clk(clk_sys),.rst(rst_sys),.en(~i_stall_f),.clr(1'b0),.d(pc_nxt),.q(pc_cur));
-DFF_RST_EN_CLR #(.DATA_WIDTH (PC_W)) u_opc_dff(.clk(clk_sys),.rst(rst_sys),.en(1'b1),.clr(i_flush_d),.d(pc_cur),.q(o_pc));
-DFF_RST_EN_CLR #(.DATA_WIDTH (1)) u_ren(.clk(clk_sys),.rst(rst_sys),.en(1'b1),.clr(i_flush_d),.d(1'b1),.q(instr_ren));
+DFF_RST_EN_CLR #(.DATA_WIDTH (PC_W)) u_opc_dff(.clk(clk_sys),.rst(rst_sys),.en(~i_stall_d),.clr(i_flush_d),.d(pc_cur),.q(o_pc));
+DFF_RST_EN_CLR #(.DATA_WIDTH (1)) u_ren(.clk(clk_sys),.rst(rst_sys),.en(~i_stall_d),.clr(i_flush_d),.d(1'b1),.q(instr_ren));
     
 endmodule

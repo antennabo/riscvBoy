@@ -47,6 +47,7 @@ wire [4:0]               exu_macc_rdaddr;
 wire                     exu_macc_mwreq;
 wire                     exu_macc_mrreq;   
 wire [31:0]              exu_macc_maddr;
+wire [31:0]              exu_macc_wdata;
 wire [31:0]              exu_macc_alures;
 wire macc_wb_rdwen;
 wire [4:0]macc_wb_rdaddr;
@@ -79,20 +80,20 @@ ifu u_instr_fec_unit(
     .clk_sys            (clk_sys),
     .rst_sys            (rst),
 
-    .i_stall_f (ecall),
-    .i_stall_d (stall_d),
-    .i_flush_d (hzd_ifu_flush|ecall),
-    .i_flush_f (1'b0),
+    .i_stall_f          (ecall|stall_f),
+    .i_stall_d          (stall_d),
+    .i_flush_d          (hzd_ifu_flush|ecall),
+    .i_flush_f          (1'b0),
 
-    .o_instr_ren(o_instr_ren),
-    .o_instr_raddr(o_instr_raddr),
-    .i_instr_dina(i_instr_dina),
+    .o_instr_ren        (o_instr_ren),
+    .o_instr_raddr      (o_instr_raddr),
+    .i_instr_dina       (i_instr_dina),
 
-    .i_jump_en        (exu2ifu_jumpen),
-    .i_jump_addr      (exu2ifu_jumpaddr),
+    .i_jump_en          (exu2ifu_jumpen),
+    .i_jump_addr        (exu2ifu_jumpaddr),
 
-    .o_instr          (ifu2idu_instr),
-    .o_pc             (ifu2dec_pc)
+    .o_instr            (ifu2idu_instr),
+    .o_pc               (ifu2dec_pc)
 );
 
 idu u_instr_dec_unit(
@@ -114,6 +115,7 @@ idu u_instr_dec_unit(
     .i_id2ex_flush    (hzd2idu_flush_id2ex),
     .o_rs1idx_e       (exu2hzd_rs1idx),
     .o_rs2idx_e       (exu2hzd_rs2idx),
+    .o_mem2reg        (idu2hzd_mem2reg),
 
     .o_rs1data_e      (idu2exu_rs1d),
     .o_rs2data_e      (idu2exu_rs2d),
@@ -146,7 +148,7 @@ exu u_instr_execu_unit(
     .i_rv32_imm       (dec2exu_imm),
     .i_rv32_pc        (dec2exu_pc),
     .alu_info_bus     (dec2exu_infobus),  
-    .o_ecall(ecall), 
+    .o_ecall          (ecall), 
     .i_wb_frw_data    (wb2reg_wdata),
     //output [4:0] o_fwd_rs1idx,
     //output [4:0] o_fwd_rs2idx,
@@ -163,6 +165,7 @@ exu u_instr_execu_unit(
     .o_mem_wen        (exu_macc_mwreq),        
     .o_mem_ren        (exu_macc_mrreq),       
     .o_mem_addr       (exu_macc_maddr),
+    .o_mem_wdata      (exu_macc_wdata),
 
     .o_jump_en        (exu2ifu_jumpen),
     .o_jump_addr      (exu2ifu_jumpaddr),  
@@ -180,6 +183,7 @@ exu u_instr_execu_unit(
     .i_mem_wreq(exu_macc_mwreq),        
     .i_mem_rreq(exu_macc_mrreq),       
     .i_mem_addr(exu_macc_maddr),
+    .i_mem_wdata(exu_macc_wdata),
     .i_alu_result(exu_macc_alures),
 
     // interface with data mem
@@ -190,6 +194,7 @@ exu u_instr_execu_unit(
     .o_mem_wdata(o_mem_wdata),    
 
     //interface with wb
+    .o_rd_mem(macc_wb_sel),
     .o_rd_wen(macc_wb_rdwen),
     .o_rd_addr(macc_wb_rdaddr),
     .o_mem_data(macc_wb_mdata),
@@ -197,7 +202,7 @@ exu u_instr_execu_unit(
  );
 
  wb u_write_back (
-    .sel(1'b1),
+    .sel(macc_wb_sel),
     .i_rd_wen(macc_wb_rdwen),
     .i_rd_addr(macc_wb_rdaddr),
     .i_alu_result(macc_wb_alures),
@@ -217,6 +222,7 @@ exu u_instr_execu_unit(
     // interface with mem
     .i_rdidx_mem(exu_macc_rdaddr),
     .i_rdwen_mem(exu_macc_rdwen),
+    .i_rdren_mem(idu2hzd_mem2reg),
     //interface with write back
     .i_rdidx_wb(macc_wb_rdaddr),
     .i_rdwen_wb(macc_wb_rdwen),

@@ -6,6 +6,7 @@ module ctrl #(
     input [4:0] i_rs2idx_d,
     output [1:0] o_fwd_rs1_d,
     output [1:0] o_fwd_rs2_d,
+    input i_rdren_mem,
     //from exu
     input [4:0] i_fwd_rs1idx,
     input [4:0] i_fwd_rs2idx,
@@ -34,8 +35,8 @@ module ctrl #(
     reg [1:0] fwd_rs2_d;
 
     assign o_stall_d = 1'b0;
-    assign o_stall_f = 1'b0;
-    assign o_flush_d = i_exu_jump;
+    assign o_stall_f = i_rdren_mem;
+    assign o_flush_d = i_exu_jump;//|i_rdren_mem;
     assign o_flush_f = i_exu_jump;
     assign o_flush_e = 1'b0;
 

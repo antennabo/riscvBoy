@@ -36,6 +36,7 @@ module idu#(
     input                         i_id2ex_flush,
     output     [4:0]              o_rs1idx_e,
     output     [4:0]              o_rs2idx_e,
+    output                        o_mem2reg,
     //interface with exu
     output     [31:0]             o_pc_e,
     output     [4:0]              o_rdidx_e,
@@ -182,6 +183,8 @@ module idu#(
     wire rv32_lbu   = rv32_type_i_l & func3_100;
     wire rv32_lhu   = rv32_type_i_l & func3_101;
 
+    assign o_mem2reg = rv32_type_i_l;
+
     // S-type (Store instruction)
     wire rv32_sb    = rv32_type_s & func3_000;
     wire rv32_sh    = rv32_type_s & func3_001;
@@ -234,8 +237,15 @@ module idu#(
         ({32{rv32_type_b  }}&rv32_b_imm) |
         ({32{rv32_type_i_l}}&rv32_i_imm) |
         ({32{rv32_jal}}&rv32_j_imm) |
-        ({32{rv32_lui|rv32_auipc}}&rv32_u_imm)
+        ({32{rv32_lui|rv32_auipc}}&rv32_u_imm)|
+        ({32{rv32_type_s}}&rv32_s_imm)
         ;
+
+    wire [31:0] rv32_s_imm = {
+        {20{i_instr[31]}} ,
+        i_instr[31:25],
+        i_instr[11:7]
+    };
     
     wire [31:0]  rv32_i_imm = { 
         {20{i_instr[31]}} ,

@@ -26,7 +26,7 @@
     output [4:0]o_rd_addr,
     output [31:0]o_rd_wdata
  );
-    assign o_rd_wdata = (sel)? i_alu_result : i_mem_data;
+    assign o_rd_wdata = (~sel)? i_alu_result : i_mem_data;
     assign o_rd_wen = i_rd_wen;
     assign o_rd_addr = i_rd_addr;
  endmodule

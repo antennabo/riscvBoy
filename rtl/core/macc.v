@@ -27,6 +27,7 @@
     input         i_mem_rreq,       
     input [31:0]  i_mem_addr,
     input [31:0]  i_alu_result,
+    input [31:0]  i_mem_wdata,
 
     // interface with data mem
     output        o_mem_wen,        
@@ -38,6 +39,7 @@
     //interface with wb
     output        o_rd_wen,
     output [4:0]  o_rd_addr,
+    output        o_rd_mem,
     output [31:0] o_mem_data,
     output [31:0] o_alu_result
  );
@@ -45,11 +47,12 @@
  assign o_mem_wen = i_mem_wreq;
  assign o_mem_ren = i_mem_rreq;
  assign o_mem_addr = i_mem_addr;
- assign o_mem_wdata = i_alu_result;
+ assign o_mem_wdata = i_mem_wdata;
 
  assign o_mem_data = i_mem_rdata;
 
  DFF_RST #(.DATA_WIDTH (1)) rwen_dff(.clk(clk_sys),.rst(rst_sys),.d(i_rd_wen),.q(o_rd_wen));
  DFF_RST #(.DATA_WIDTH (5)) raddr_dff(.clk(clk_sys),.rst(rst_sys),.d(i_rd_addr),.q(o_rd_addr));
+ DFF_RST #(.DATA_WIDTH (1)) mem_sel_dff(.clk(clk_sys),.rst(rst_sys),.d(i_mem_rreq),.q(o_rd_mem));
  DFF_RST #(.DATA_WIDTH (32)) res_dff(.clk(clk_sys),.rst(rst_sys),.d(i_alu_result),.q(o_alu_result));
  endmodule

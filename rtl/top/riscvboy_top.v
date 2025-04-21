@@ -34,8 +34,8 @@ riscvboy_core_top #(
 );
 
 imem #(
-    .INSTR_WIDTH (32),
-    .MEM_DEPTH(2048) 
+    .INSTR_WIDTH                  (32),
+    .MEM_DEPTH                    (2048) 
 )u_imem  (
     .clk(clk_sys),
     .rst(rst),
@@ -54,9 +54,9 @@ dmem #(
     .clk(clk_sys),
     .rst(rst),
     .i_data_wena(core_dmem_wen),
-    .i_data_waddra(core_dmem_addr[12:0]),
+    .i_data_waddra(core_dmem_addr[14:2]),
     .i_data_dina(core_dmem_wdata),
-    .i_addrb(core_dmem_addr[12:0]),
+    .i_addrb(core_dmem_addr[14:2]),
     .o_dout_b(dmem_core_rdata)
 );
 

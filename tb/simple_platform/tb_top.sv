@@ -10,8 +10,10 @@ module tb_cpu;
     wire [31:0] result;
 
     `define INSTR_MEM cpu.u_imem.u_ins_mem
+    `define DATA_MEM cpu.u_dmem.u_data_mem
     `define REG_FILE cpu.u_core_top.u_regs
     parameter INSTR_RAM_DP=2048;
+    parameter DATA_RAM_DP=4096;
     
     riscvboy_top cpu(
         .clk_sys         (clk),
@@ -41,7 +43,7 @@ module tb_cpu;
 
 
     integer i;
-    reg [31:0] instr_mem [0:INSTR_RAM_DP-1];
+    reg [31:0] instr_mem [0:DATA_RAM_DP-1];
     initial begin
         $readmemh({ "./../isa_lib/rv32ui/", testcase, ".hex"}, instr_mem);
         for (i = 0; i < 10; i = i + 1) begin
@@ -50,6 +52,10 @@ module tb_cpu;
 
         for (i = 0; i < INSTR_RAM_DP; i = i + 1) begin
             `INSTR_MEM.MEM[i] = instr_mem[i];
+        end
+
+        for (i = INSTR_RAM_DP; i < DATA_RAM_DP; i = i + 1) begin
+            `DATA_MEM.MEM[i] = instr_mem[i];
         end
 
         $display("INSTR_MEM 0x00: %h", `INSTR_MEM.MEM[8'h00]);

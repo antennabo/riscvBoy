@@ -42,6 +42,7 @@
     output        o_mem_wen,        
     output        o_mem_ren,       
     output [31:0] o_mem_addr,
+    output [31:0] o_mem_wdata,
     output        o_ecall,
 
     output        o_jump_en,
@@ -54,6 +55,7 @@ wire [4:0]  rd_addr_w;
 wire        mem_wen_w;   
 wire        mem_ren_w;   
 wire [31:0] mem_addr_w; 
+wire [31:0] mem_wdata_w;
 wire        jump_en_w;  
 wire [31:0] jump_addr_w; 
 wire [31:0] result_w;
@@ -87,6 +89,7 @@ exu_alu u_alu(
     .o_mem_wen   (mem_wen_w  ),//output               
     .o_mem_ren   (mem_ren_w  ),//output              
     .o_mem_addr  (mem_addr_w ),//output [31:0]
+    .o_mem_wdata (mem_wdata_w),
                               //             
     .o_jump_en   (o_jump_en  ),//output       
     .o_jump_addr (o_jump_addr),//output [31:0]  
@@ -98,6 +101,7 @@ exu_alu u_alu(
  DFF_RST_CLR #(.DATA_WIDTH (1)) mwen_dff(.clk(clk_sys),.rst(rst_sys),.clr(i_pip_flush),.d(mem_wen_w),.q(o_mem_wen));
  DFF_RST_CLR #(.DATA_WIDTH (1)) mren_dff(.clk(clk_sys),.rst(rst_sys),.clr(i_pip_flush),.d(mem_ren_w),.q(o_mem_ren));
  DFF_RST_CLR #(.DATA_WIDTH (32)) maddr_dff(.clk(clk_sys),.rst(rst_sys),.clr(i_pip_flush),.d(mem_addr_w),.q(o_mem_addr));
+ DFF_RST_CLR #(.DATA_WIDTH (32)) mwdata_dff(.clk(clk_sys),.rst(rst_sys),.clr(i_pip_flush),.d(mem_wdata_w),.q(o_mem_wdata));
  //DFF_RST_CLR #(.DATA_WIDTH (1)) jen_dff(.clk(clk_sys),.rst(rst_sys),.clr(i_pip_flush),.d(jump_en_w),.q(o_jump_en));
  //DFF_RST_CLR #(.DATA_WIDTH (32)) jaddr_dff(.clk(clk_sys),.rst(rst_sys),.clr(i_pip_flush),.d(jump_addr_w),.q(o_jump_addr));
  DFF_RST_CLR #(.DATA_WIDTH (32)) res_dff(.clk(clk_sys),.rst(rst_sys),.clr(i_pip_flush),.d(result_w),.q(o_result));
