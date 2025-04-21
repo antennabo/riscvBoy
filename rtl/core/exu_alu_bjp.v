@@ -26,15 +26,8 @@ module exu_alu_bjp(
     
 
 wire [31:0] jump_add_op1 = (rv32_jalr)? i_rv32_rs1 :i_pc;
-//wire [31:0] jump_add_op1 = i_pc;
 wire [31:0] jump_add_op2 = i_imm;
-
-//assign o_jump_addr = (rv32_jalr)? i_rv32_rs1 : (jump_add_op1 + jump_add_op2);
 assign o_jump_addr =  jump_add_op1 + jump_add_op2;
-//wire [31:0] jump_add_op1 = i_pc;
-//wire [31:0] jump_add_op2 = i_imm;
-//assign o_jump_addr = (rv32_jalr) ? ({i_rv32_rs1 + jump_add_op2} & 32'hFFFFFFFE) 
-//                                 : (jump_add_op1 + jump_add_op2);
 
 assign {rv32_jal,
         rv32_jalr,
@@ -51,8 +44,8 @@ assign o_jump_en=  rv32_jal|
                    rv32_jalr|
                   (rv32_beq&op1_eq_op2)|
                   (rv32_bne&(~op1_eq_op2))|
-                  (rv32_blt&(~slt_result))|
-                  (rv32_bge&slt_result)|
-                  (rv32_bltu&(~sltu_result))|
-                  (rv32_bgeu&(sltu_result));
+                  (rv32_blt&(slt_result))|
+                  (rv32_bge&(~slt_result))|
+                  (rv32_bltu&(sltu_result))|
+                  (rv32_bgeu&(~sltu_result));
 endmodule

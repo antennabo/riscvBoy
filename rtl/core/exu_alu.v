@@ -30,6 +30,7 @@ module exu_alu (
     output        o_mem_ren,       
     output [31:0] o_mem_addr,
 
+    output  o_ecall,
     output        o_jump_en,
     output [31:0] o_jump_addr,  
     output [31:0] o_result 
@@ -59,6 +60,7 @@ exu_alu_dec u_alu_dec(
     .i_rv32_imm    (i_rv32_imm),//input   [31:0] 
     .i_rv32_pc     (i_rv32_pc),//input   [31:0] 
     .alu_info_bus  (alu_info_bus),//input   [13:0]  
+    .o_ecall(o_ecall),
                                    
     .o_mem_wreq    (dec_agu_mem_wreq),//output         
     .o_mem_rreq    (dec_agu_mem_rreq),//output         

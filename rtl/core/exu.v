@@ -39,9 +39,10 @@
     output        o_rd_wen,
     output [4:0]  o_rd_addr,
 
-    output        o_mem_wreq,        
-    output        o_mem_rreq,       
+    output        o_mem_wen,        
+    output        o_mem_ren,       
     output [31:0] o_mem_addr,
+    output        o_ecall,
 
     output        o_jump_en,
     output [31:0] o_jump_addr,  
@@ -75,7 +76,8 @@ exu_alu u_alu(
     .i_rv32_rs2  (rs2_data    ),//input [31:0] 
     .i_rv32_imm  (i_rv32_imm  ),//input [31:0] 
     .i_rv32_pc   (i_rv32_pc   ),//input [31:0] 
-    .alu_info_bus(alu_info_bus),//input [13:0]   
+    .alu_info_bus(alu_info_bus),//input [13:0]  
+    .o_ecall(o_ecall), 
                    //             
     .i_rd_wen    (i_rd_wen   ),//input        
     .i_rd_addr   (i_rd_addr  ),//input  [4:0] 

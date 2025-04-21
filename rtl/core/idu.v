@@ -347,14 +347,14 @@ module idu#(
     assign csr_info_bus[BJP_INFO_IMM_VAL]  = 1'b0;
     assign csr_info_bus[DECODE_INFO_TYPE+DECODE_INFO_TYPE_WIDTH-1:DECODE_INFO_TYPE]=3'b100;
 
-    DFF_RST_EN_CLR #(.DATA_WIDTH (DECODE_INFO_BUS_WIDTH)) u_infobus_dff(.clk(clk_sys),.rst(rst_sys),.en(1'b1),.clr(i_id2ex_flush),.d(decode_info_bus),.q(o_decode_info_bus));
-    DFF_RST_EN_CLR #(.DATA_WIDTH (32)) u_imm_dff(.clk(clk_sys),.rst(rst_sys),.en(1'b1),.clr(i_id2ex_flush),.d(rv32_imm),.q(o_imm_e));
-    DFF_RST_EN_CLR #(.DATA_WIDTH (32)) u_pc_dff(.clk(clk_sys),.rst(rst_sys),.en(1'b1),.clr(i_id2ex_flush),.d(i_pc),.q(o_pc_e));
-    DFF_RST_EN_CLR #(.DATA_WIDTH (1)) u_rdwen_dff(.clk(clk_sys),.rst(rst_sys),.en(1'b1),.clr(i_id2ex_flush),.d(rv32_need_rd),.q(o_rd_en));
-    DFF_RST_EN_CLR #(.DATA_WIDTH (5)) u_rdidx_dff(.clk(clk_sys),.rst(rst_sys),.en(1'b1),.clr(i_id2ex_flush),.d(i_instr[11:7]),.q(o_rdidx_e));
-    DFF_RST_EN_CLR #(.DATA_WIDTH (5)) u_rs1idx_dff(.clk(clk_sys),.rst(rst_sys),.en(1'b1),.clr(i_id2ex_flush),.d(o_rs1_idx),.q(o_rs1idx_e));
-    DFF_RST_EN_CLR #(.DATA_WIDTH (5)) u_rs2idx_dff(.clk(clk_sys),.rst(rst_sys),.en(1'b1),.clr(i_id2ex_flush),.d(o_rs2_idx),.q(o_rs2idx_e));
-    DFF_RST_EN_CLR #(.DATA_WIDTH (32)) u_rs1d_dff(.clk(clk_sys),.rst(rst_sys),.en(1'b1),.clr(i_id2ex_flush),.d(i_rs1_data),.q(o_rs1data_e));
-    DFF_RST_EN_CLR #(.DATA_WIDTH (32)) u_rs2d_dff(.clk(clk_sys),.rst(rst_sys),.en(1'b1),.clr(i_id2ex_flush),.d(i_rs2_data),.q(o_rs2data_e));
+    DFF_RST_EN_CLR #(.DATA_WIDTH (DECODE_INFO_BUS_WIDTH)) u_infobus_dff(.clk(clk_sys),.rst(rst_sys),.en(i_id2ex_stall),.clr(i_id2ex_flush),.d(decode_info_bus),.q(o_decode_info_bus));
+    DFF_RST_EN_CLR #(.DATA_WIDTH (32)) u_imm_dff(.clk(clk_sys),.rst(rst_sys),.en(i_id2ex_stall),.clr(i_id2ex_flush),.d(rv32_imm),.q(o_imm_e));
+    DFF_RST_EN_CLR #(.DATA_WIDTH (32)) u_pc_dff(.clk(clk_sys),.rst(rst_sys),.en(i_id2ex_stall),.clr(i_id2ex_flush),.d(i_pc),.q(o_pc_e));
+    DFF_RST_EN_CLR #(.DATA_WIDTH (1)) u_rdwen_dff(.clk(clk_sys),.rst(rst_sys),.en(i_id2ex_stall),.clr(i_id2ex_flush),.d(rv32_need_rd),.q(o_rd_en));
+    DFF_RST_EN_CLR #(.DATA_WIDTH (5)) u_rdidx_dff(.clk(clk_sys),.rst(rst_sys),.en(i_id2ex_stall),.clr(i_id2ex_flush),.d(i_instr[11:7]),.q(o_rdidx_e));
+    DFF_RST_EN_CLR #(.DATA_WIDTH (5)) u_rs1idx_dff(.clk(clk_sys),.rst(rst_sys),.en(i_id2ex_stall),.clr(i_id2ex_flush),.d(o_rs1_idx),.q(o_rs1idx_e));
+    DFF_RST_EN_CLR #(.DATA_WIDTH (5)) u_rs2idx_dff(.clk(clk_sys),.rst(rst_sys),.en(i_id2ex_stall),.clr(i_id2ex_flush),.d(o_rs2_idx),.q(o_rs2idx_e));
+    DFF_RST_EN_CLR #(.DATA_WIDTH (32)) u_rs1d_dff(.clk(clk_sys),.rst(rst_sys),.en(i_id2ex_stall),.clr(i_id2ex_flush),.d(i_rs1_data),.q(o_rs1data_e));
+    DFF_RST_EN_CLR #(.DATA_WIDTH (32)) u_rs2d_dff(.clk(clk_sys),.rst(rst_sys),.en(i_id2ex_stall),.clr(i_id2ex_flush),.d(i_rs2_data),.q(o_rs2data_e));
 
 endmodule

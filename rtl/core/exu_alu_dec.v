@@ -21,6 +21,7 @@ module exu_alu_dec (
     input   [31:0] i_rv32_pc,
     input   [13:0] alu_info_bus,  
 
+    output  o_ecall,
 
     output          o_mem_wreq,
     output          o_mem_rreq,
@@ -99,6 +100,7 @@ wire rv32_csrrwi  = csr_sel&alu_info_bus[DECODE_INFO_BIT_7];
 wire rv32_csrrsi  = csr_sel&alu_info_bus[DECODE_INFO_BIT_8];
 wire rv32_csrrci  = csr_sel&alu_info_bus[DECODE_INFO_BIT_9];
 //
+assign o_ecall = rv32_ecall;
 
 wire alu_add_sel = rv32_add | //add,addi
                    rv32_sub   //sub
@@ -125,7 +127,7 @@ wire mem_add_sel =  rv32_lb |
 //rv32_lb,rv32_lh,rv32_lw,rv32_lbu,rv32_lhu,rv32_sb,rv32_sh,rv32_sw rd = rs1 + offset;
 wire mem_write = rv32_sb|rv32_sh|rv32_sw;
 wire mem_read  = rv32_lb|rv32_lh|rv32_lw|rv32_lbu|rv32_lhu;
-wire [31:0] mem_add_op1 = i_rv32_pc;
+wire [31:0] mem_add_op1 = i_rv32_rs1;
 wire [31:0] mem_add_op2 = i_rv32_imm;
 
 assign o_mem_wreq = mem_write;
@@ -167,12 +169,13 @@ assign o_sra_info = {{32{rv32_sra}}&sra_op2,{32{rv32_sra}}&sra_op1};
 
 wire [31:0] slt_op1 = i_rv32_rs1;
 wire [31:0] slt_op2 = op_src2;
-assign o_slt_info = {rv32_slt,{32{rv32_slt}}&slt_op2,{32{rv32_slt}}&slt_op1};
+wire slt_sel = rv32_slt|rv32_bge|rv32_blt;
+assign o_slt_info = {rv32_slt,{32{slt_sel}}&slt_op2,{32{slt_sel}}&slt_op1};
 
 //need to add type b
 wire [31:0] sltu_op1 = i_rv32_rs1;
 wire [31:0] sltu_op2 = op_src2;
-wire sltu_sel = rv32_sltu|rv32_bne;//|rv32_bge;//|rv32_beq;
+wire sltu_sel = rv32_sltu|rv32_bne|rv32_bgeu|rv32_bltu|rv32_beq;
 assign o_sltu_info = {rv32_sltu,{32{sltu_sel}}&sltu_op2,{32{sltu_sel}}&sltu_op1};
 
 wire [31:0] xor_op1 = i_rv32_rs1;

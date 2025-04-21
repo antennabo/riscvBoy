@@ -22,7 +22,12 @@
     input [31:0] i_alu_res,
     output o_mem_wen,
     output [31:0] o_mem_addr,
+    output [31:0] o_mem_wdata,
     output o_mem_ren
  );
+
+   assign o_mem_ren = i_mem_rreq;
+   assign o_mem_wen = i_mem_wreq;
+   assign o_mem_addr = i_alu_res;
     
  endmodule

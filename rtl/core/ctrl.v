@@ -1,4 +1,4 @@
-module hzd_ctrl #(
+module ctrl #(
     parameter A =1
 ) (
     //from idu
