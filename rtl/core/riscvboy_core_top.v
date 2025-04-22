@@ -27,39 +27,40 @@ module riscvboy_core_top #(
    output [31:0]        o_instr_raddr    ,
    input  [INS_W-1:0]   i_instr_dina ,
 
-   output               o_mem_wen,        
+   output               o_mem_wen,
+   output [3:0]         o_mem_wbe,              
    output               o_mem_ren,       
    output [31:0]        o_mem_addr,     
    input  [31:0]        i_mem_rdata,
    output [31:0]        o_mem_wdata     
 );
 
-wire [INS_W-1:0]         ifu2idu_instr;
-wire [4:0]               idu2reg_rs1idx;
-wire [4:0]               idu2reg_rs2idx;
-wire [PC_W-1:0]          dec2exu_pc;
-wire [PC_W-1:0]          ifu2dec_pc;
-wire                     dec2exu_rden;
-wire [4:0]               dec_exu_rdidx;
-wire [13:0]              dec2exu_infobus;
-wire                     exu_macc_rdwen;
-wire [4:0]               exu_macc_rdaddr;
-wire                     exu_macc_mwreq;
-wire                     exu_macc_mrreq;   
-wire [31:0]              exu_macc_maddr;
-wire [31:0]              exu_macc_wdata;
-wire [31:0]              exu_macc_alures;
-wire macc_wb_rdwen;
-wire [4:0]macc_wb_rdaddr;
-wire [31:0] macc_wb_alures;
-wire [31:0] macc_wb_mdata;
-wire                    wb2reg_rdwen;
-wire [4:0]              wb2reg_rdaddr;
-wire [31:0]             wb2reg_wdata;
-wire [31:0] reg2idu_rs1d;
-wire [31:0] reg2idu_rs2d;
-wire [31:0] idu2exu_rs1d;
-wire [31:0] idu2exu_rs2d;
+wire [INS_W-1:0]            ifu2idu_instr;
+wire [4:0]                  idu2reg_rs1idx;
+wire [4:0]                  idu2reg_rs2idx;
+wire [PC_W-1:0]             dec2exu_pc;
+wire [PC_W-1:0]             ifu2dec_pc;
+wire                        dec2exu_rden;
+wire [4:0]                  dec_exu_rdidx;
+wire [13:0]                 dec2exu_infobus;
+wire                        exu_macc_rdwen;
+wire [4:0]                  exu_macc_rdaddr;
+wire                        exu_macc_mwreq;
+wire                        exu_macc_mrreq;   
+wire [31:0]                 exu_macc_maddr;
+wire [31:0]                 exu_macc_wdata;
+wire [31:0]                 exu_macc_alures;
+wire                        macc_wb_rdwen;
+wire [4:0]                  macc_wb_rdaddr;
+wire [31:0]                 macc_wb_alures;
+wire [31:0]                 macc_wb_mdata;
+wire                        wb2reg_rdwen;
+wire [4:0]                  wb2reg_rdaddr;
+wire [31:0]                 wb2reg_wdata;
+wire [31:0]                 reg2idu_rs1d;
+wire [31:0]                 reg2idu_rs2d;
+wire [31:0]                 idu2exu_rs1d;
+wire [31:0]                 idu2exu_rs2d;
 
 wire [31:0] dec2exu_imm;
 wire exu2ifu_jumpen;
@@ -74,6 +75,7 @@ wire [4:0] exu2hzd_rs1idx;
 wire [4:0] exu2hzd_rs2idx;
 wire [1:0] ctrl_exu_rs1e;
 wire [1:0] ctrl_exu_rs2e;
+wire [3:0] exu_macc_rdtype;
 
 
 ifu u_instr_fec_unit(
@@ -140,6 +142,7 @@ regfile u_regs(
     .rd_data          (wb2reg_wdata)
 );
 
+wire [3:0] exu_macc_wbe;
 exu u_instr_execu_unit(
     .clk_sys          (clk_sys),
     .rst_sys          (rst),
@@ -162,10 +165,12 @@ exu u_instr_execu_unit(
     .o_rd_wen         (exu_macc_rdwen),
     .o_rd_addr        (exu_macc_rdaddr),
 
-    .o_mem_wen        (exu_macc_mwreq),        
+    .o_mem_wen        (exu_macc_mwreq),
+    .o_mem_wbe        (exu_macc_wbe),
     .o_mem_ren        (exu_macc_mrreq),       
     .o_mem_addr       (exu_macc_maddr),
     .o_mem_wdata      (exu_macc_wdata),
+    .o_mem_rdtype     (exu_macc_rdtype),
 
     .o_jump_en        (exu2ifu_jumpen),
     .o_jump_addr      (exu2ifu_jumpaddr),  
@@ -180,14 +185,17 @@ exu u_instr_execu_unit(
     //interface with exu
     .i_rd_wen(exu_macc_rdwen),
     .i_rd_addr(exu_macc_rdaddr),
-    .i_mem_wreq(exu_macc_mwreq),        
+    .i_mem_wreq(exu_macc_mwreq),
+    .i_mem_wbe (exu_macc_wbe),        
     .i_mem_rreq(exu_macc_mrreq),       
     .i_mem_addr(exu_macc_maddr),
     .i_mem_wdata(exu_macc_wdata),
+    .i_mem_rdtype(exu_macc_rdtype),
     .i_alu_result(exu_macc_alures),
 
     // interface with data mem
-    .o_mem_wen  (o_mem_wen),        
+    .o_mem_wen  (o_mem_wen),
+    .o_mem_wbe  (o_mem_wbe),        
     .o_mem_ren  (o_mem_ren),       
     .o_mem_addr (o_mem_addr),     
     .i_mem_rdata(i_mem_rdata),

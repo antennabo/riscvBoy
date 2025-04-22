@@ -14,7 +14,7 @@
 ../../rtl/core/wb.v
 ../../rtl/core/ctrl.v
 ../../rtl/mem/imem.v
-../../rtl/mem/data_mem.v
+../../rtl/mem/dmem.v
 ../../rtl/core/riscvboy_core_top.v
 ../../rtl/top/riscvboy_top.v
 ./tb_top.sv

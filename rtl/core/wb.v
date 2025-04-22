@@ -15,16 +15,16 @@
  */
 
  module wb #(
-    parameter A =1
+    parameter DATA_WIDTH =32
  ) (
-    input sel,
-    input i_rd_wen,
-    input [4:0]i_rd_addr,
-    input [31:0] i_alu_result,
-    input [31:0] i_mem_data,
-    output o_rd_wen,
-    output [4:0]o_rd_addr,
-    output [31:0]o_rd_wdata
+    input                     sel,
+    input                     i_rd_wen,
+    input [4:0]               i_rd_addr,
+    input [DATA_WIDTH -1:0]   i_alu_result,
+    input [DATA_WIDTH -1:0]   i_mem_data,
+    output                    o_rd_wen,
+    output [4:0]              o_rd_addr,
+    output [DATA_WIDTH -1:0]  o_rd_wdata
  );
     assign o_rd_wdata = (~sel)? i_alu_result : i_mem_data;
     assign o_rd_wen = i_rd_wen;

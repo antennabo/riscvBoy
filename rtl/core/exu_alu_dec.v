@@ -25,6 +25,8 @@ module exu_alu_dec (
 
     output          o_mem_wreq,
     output          o_mem_rreq,
+    output  [2:0]   o_mem_wtype,
+    output  [3:0]   o_mem_rdtype,
     //output [31:0]   o_mem_addr,
     output  [7:0]   o_jump_req,
     //output [31:0] o_jump_addr,  
@@ -125,10 +127,13 @@ wire mem_add_sel =  rv32_lb |
                     rv32_sh|
                     rv32_sw;
 //rv32_lb,rv32_lh,rv32_lw,rv32_lbu,rv32_lhu,rv32_sb,rv32_sh,rv32_sw rd = rs1 + offset;
+
+assign o_mem_wtype = {rv32_sb,rv32_sh,rv32_sw};
 wire mem_write = rv32_sb|rv32_sh|rv32_sw;
 wire mem_read  = rv32_lb|rv32_lh|rv32_lw|rv32_lbu|rv32_lhu;
 wire [31:0] mem_add_op1 = i_rv32_rs1;
 wire [31:0] mem_add_op2 = i_rv32_imm;
+assign o_mem_rdtype = {rv32_lb|rv32_lh,rv32_lbu|rv32_lb,rv32_lhu|rv32_lh,rv32_lw};
 
 assign o_mem_wreq = mem_write;
 assign o_mem_rreq = mem_read;

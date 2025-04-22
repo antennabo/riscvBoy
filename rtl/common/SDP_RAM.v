@@ -14,84 +14,97 @@
  limitations under the License.                                          
  */
 module SDP_RAM #(
-    parameter RAM_TYPE                  = "BRAM"    ,//BRAM or DRAM
-    parameter DATA_W                    = 2        ,
-    parameter RAM_DEPTH                 = 256        ,      
-    parameter DEPTH_W                   = clogb2(RAM_DEPTH),
-    parameter LATENCY                   = "NORMAL",
-    parameter INIT_FILE                 = "" 
+    parameter RAM_TYPE        = "BRAM",               // "BRAM" or "DRAM"
+    parameter DATA_W          = 32,                   // Data bus width
+    parameter RAM_DEPTH       = 256,                  // RAM depth
+    parameter DEPTH_W         = clogb2(RAM_DEPTH),    // Address width
+    parameter LATENCY         = "NORMAL",             // "NORMAL" = output reg, "LOW_LATENCY" = raw output
+    parameter INIT_FILE       = "",                   // Memory init file (hex)
+    parameter USE_BYTE_ENABLE = 0                     // 1: use byte mask; 0: whole-word write
 ) (
-    input wire                          clk ,
-    input                               rst,
-    input wire                          wea ,
-    input wire                          reb ,
-    input wire [DEPTH_W-1       :   0]  addra,
-    input wire [DEPTH_W-1       :   0]  addrb,
-    input wire [DATA_W-1        :   0]  dina,
-    output     [DATA_W-1        :   0]  doutb
+    input  wire                      clk,
+    input  wire                      rst,
+    input  wire                      wea,
+    input  wire [DATA_W/8-1:0]       byte_enable,
+    input  wire                      reb,
+    input  wire [DEPTH_W-1:0]        addra,
+    input  wire [DEPTH_W-1:0]        addrb,
+    input  wire [DATA_W-1:0]         dina,
+    output wire [DATA_W-1:0]         doutb
 );
 
-    //(* ram_style = "block" *) define the ram type as Block RAM
-    //(* ram_style = "distributed" *) define the ram type as distributed RAM
-    localparam RAM_STYLE = (RAM_TYPE == "BRAM") ? "block" : 
+    localparam RAM_STYLE = (RAM_TYPE == "BRAM") ? "block" :
                            (RAM_TYPE == "DRAM") ? "distributed" : "";
 
-    (* ram_style = RAM_STYLE *) reg [DATA_W-1:0] MEM [RAM_DEPTH-1:0];
+    // 2D RAM array: each word is DATA_W bits wide
+    (* ram_style = RAM_STYLE *) reg [DATA_W-1:0] MEM [0:RAM_DEPTH-1];
 
-    reg      [DATA_W-1        :   0]  ram_data;
+    reg [DATA_W-1:0] ram_data;
+    integer i;
 
     always @(posedge clk) begin
-        if (wea)
-            MEM[addra] <= dina;
-            
+        // Write logic
+        if (wea) begin
+            if (USE_BYTE_ENABLE) begin
+                // Byte-wise write
+                for (i = 0; i < DATA_W/8; i = i + 1) begin
+                    if (byte_enable[i])
+                        MEM[addra][i*8 +: 8] <= dina[i*8 +: 8];
+                end
+            end else begin
+                // Full word write
+                MEM[addra] <= dina;
+            end
+        end
+
+        // Read logic
         if (reb)
             ram_data <= MEM[addrb];
-        else ;
     end
 
-    //  The following code generates NORMAL (use output register) or LOW_LATENCY (no output register)
+    // Output logic: normal (registered) or low latency
     generate
-        if (LATENCY == "LOW_LATENCY") begin: no_output_register
-
-        // The following is a 1 clock cycle read latency at the cost of a longer clock-to-out timing
-        assign doutb = ram_data;
-
-    end else begin: output_register
-
-        // The following is a 2 clock cycle read latency with improve clock-to-out timing
-
-        reg [DATA_W-1:0] doutb_reg = {DATA_W{1'b0}};
-
-        always @(posedge clk or posedge rst)
-            if (rst)
-                doutb_reg <= {DATA_W{1'b0}};
-            else
-                doutb_reg <= ram_data;
-
-        assign doutb = doutb_reg;
-    end
-    endgenerate
-
-    // The following code either initializes the memory values to a specified file or to all zeros to match hardware
-    generate
-        if (INIT_FILE != "") begin: use_init_file
-        initial
-            $readmemh(INIT_FILE, BRAM, 0, RAM_DEPTH-1);
-        end else begin: init_bram_to_zero
-            integer ram_index;
-            initial
-            for (ram_index = 0; ram_index < RAM_DEPTH; ram_index = ram_index + 1)
-            MEM[ram_index] = {DATA_W{1'b0}};
+        if (LATENCY == "LOW_LATENCY") begin : low_lat
+            assign doutb = ram_data;
+        end else begin : reg_out
+            reg [DATA_W-1:0] doutb_reg;
+            always @(posedge clk or posedge rst)
+                if (rst)
+                    doutb_reg <= {DATA_W{1'b0}};
+                else
+                    doutb_reg <= ram_data;
+            assign doutb = doutb_reg;
         end
     endgenerate
-    //  The following function calculates the address width based on specified RAM depth
+
+    // Memory initialization
+    generate
+        if (INIT_FILE != "") begin : use_init_file
+            initial $readmemh(INIT_FILE, MEM);
+        end else begin : init_to_zero
+            integer i;
+            initial begin
+                for (i = 0; i < RAM_DEPTH; i = i + 1)
+                    MEM[i] = {DATA_W{1'b0}};
+            end
+        end
+    endgenerate
+
+    // clog2 function
     function integer clogb2;
-    input integer depth;
-      for (clogb2=0; depth>0; clogb2=clogb2+1)
-        depth = depth >> 1;
-  endfunction
+        input integer depth;
+        begin
+            clogb2 = 0;
+            while (depth > 0) begin
+                depth = depth >> 1;
+                clogb2 = clogb2 + 1;
+            end
+        end
+    endfunction
 
 endmodule
+
+
 
 // The following is an instantiation template for SDP_RAM
 /*

@@ -26,10 +26,12 @@ module exu_alu (
     output        o_rd_wen,
     output [4:0]  o_rd_addr,
 
-    output        o_mem_wen,        
+    output        o_mem_wen,  
+    output [3:0]  o_data_be,      
     output        o_mem_ren,
     output [31:0] o_mem_wdata,     
     output [31:0] o_mem_addr,
+    output [3:0]  o_mem_rdtype,
 
     output  o_ecall,
     output        o_jump_en,
@@ -49,6 +51,7 @@ wire  [64:0] dec_alu_sltu_info;
 wire  [31:0] alu_res;
 wire  [2:0] alu_bjp_cmp_res;
 wire  [7:0] dec_bjp_jump_req;
+wire  [2:0] dec_agu_wtype;
 wire dec_agu_mem_wreq;
 wire dec_agu_mem_rreq;
 
@@ -61,11 +64,13 @@ exu_alu_dec u_alu_dec(
     .i_rv32_imm    (i_rv32_imm),//input   [31:0] 
     .i_rv32_pc     (i_rv32_pc),//input   [31:0] 
     .alu_info_bus  (alu_info_bus),//input   [13:0]  
-    .o_ecall(o_ecall),
+    .o_ecall       (o_ecall),
                                    
     .o_mem_wreq    (dec_agu_mem_wreq),//output         
     .o_mem_rreq    (dec_agu_mem_rreq),//output         
     //.o_mem_addr,  //output [31:0]
+    .o_mem_wtype   (dec_agu_wtype ),
+    .o_mem_rdtype  (o_mem_rdtype),
     .o_jump_req    (dec_bjp_jump_req),//output  [6:0]  
     //.o_jump_addr, //output [31:0] 
     .o_add_info    (dec_alu_add_info),//output  [64:0] 
@@ -111,8 +116,10 @@ exu_alu_agu u_alu_agu(
     .i_mem_rreq    (dec_agu_mem_rreq),//input
     .i_alu_res     (o_result),//input [31:0] 
     .i_rs2_data    (i_rv32_rs2),
+    .i_mem_wtype   (dec_agu_wtype),
     .o_mem_wdata   (o_mem_wdata),
     .o_mem_wen     (o_mem_wen),//output 
+    .o_data_be     (o_data_be),
     .o_mem_addr    (o_mem_addr),//output [31:0] 
     .o_mem_ren     (o_mem_ren)//output 
  );

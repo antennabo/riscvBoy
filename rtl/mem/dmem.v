@@ -7,6 +7,7 @@ module dmem #(
     input                       clk,
     input                       rst,
     input                       i_data_wena,
+    input  [3:0]                i_data_wbe,
     input  [MEM_DEPTH_W-1: 0]   i_data_waddra,
     input  [INSTR_WIDTH-1: 0]   i_data_dina,
     input  [MEM_DEPTH_W-1: 0]   i_addrb,
@@ -18,11 +19,13 @@ module dmem #(
         .DATA_W     (INSTR_WIDTH    ),//Specify RAM data width
         .RAM_DEPTH  (MEM_DEPTH      ),//Specify RAM depth (number of entries)
         .LATENCY    ("LOW_LATENCY"  ),//Select "NORMAL" or "LOW_LATENCY" 
-        .INIT_FILE  (""             ) // Specify name/location of RAM initialization file if using one (leave blank if not)
+        .INIT_FILE  (""             ), // Specify name/location of RAM initialization file if using one (leave blank if not)
+        .USE_BYTE_ENABLE(1          )
     ) u_data_mem (
         .addra      (i_data_waddra  ),// Write address bus, width determined from RAM_DEPTH
         .addrb      (i_addrb        ),// Read address bus, width determined from RAM_DEPTH
         .dina       (i_data_dina    ),// RAM input data, width determined from RAM_WIDTH
+        .byte_enable(i_data_wbe     ),
         .clk        (clk            ),// Clock
         .wea        (i_data_wena    ),// Write enable
         .reb        (1'b1           ),// Read Enable, for additional power savings, disable when not in use
